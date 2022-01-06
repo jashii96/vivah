@@ -1,64 +1,219 @@
+{% extends 'base.html' %}
+{% block content %}
 
-{% extends "base.html" %}
+                <!-- To decrese notification count when click on notification-->
+                <script>
+                    function notification(noti_id) {
+                        $.ajax({
+                            url: "web-services/notification",
+                            type: "POST",
+                            data: "noti_id=" + noti_id,
+                            cache: false,
+                            success: function(response) {
+                                location.reload();
 
-{% block head_title %}{{ title }} | {{ block.super }} {% endblock head_title %}
-{% block user_login_status %}{% endblock user_login_status %}
+                            }
+                        });
+                        return true;
+                    }
+                </script>
+                <!-- HEADER END-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xxl-6 col-xs-16 col-xl-6 col-xs-offset-0 col-xxl-offset-5 col-sm-offset-0 col-md-offset-0 col-xl-offset-5 col-lg-10 col-lg-offset-3 ">
+                            <form class="gt-login-form" action="" name="login_form" id="login_form" method="post">
+                                {% csrf_token %}
+                                <h2 class="text-center">LOGIN</h2>
+                                <h5 class="text-center">And search your life partner</h5>
+                                <div class="form-group">
+                                    <label>User Id / Email Id</label>
+                                    <input type="text" class="gt-form-control " placeholder="Enter your user id" name="username" id="username" data-validetta="required" value="{{'user1'}}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="gt-form-control " placeholder="Enter your password" name="password" id="password" data-validetta="required" value="{{'user1'}}">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xxl-8">
+                                            <label for="keep_login">
+											<input type="checkbox" class="" name="keep_login" id="keep_login" > Keep me logged in
+										   </label>
+                                        </div>
+                                        <div class="col-xxl-8 text-right">
+                                            <a href="forgot-password-password" class="">Forgot Password ?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" class="btn gt-btn-orange gt-btn-xl btn-block" name="member_login" value="Login">
+                                </div>
+                                <div class="form-group text-center">
+                                    <a href="resend_email_verify" class="btn gt-btn-green gt-btn-xl btn-block">Resend Email Verification</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container gt-margin-top-10">
+        </div>
+
+        <!--- FOOTER --->
+        <!--- FOOTER END--->
+
+        <!--
+<script>
+ document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("return false")
+</script>
+-->
+
+        <!---- ONLINE CHAT WIDGET--->
+        <script type="text/javascript">
+            var auto_refresh = setInterval(
+                function() {
+                    $('#count').load('parts/online').fadeIn("slow");
+                }, 15000); // refresh every 10 second
+        </script>
+        <script src="/static/js/jquery.min.js"></script>
+        <small class="pull-right">
+  </small>
+        <!---- ONLINE CHAT WIDGET END--->
 
 
-
-{% block content1 %}
-
-<div class="grid_3">
-  <div class="container">
-   <div class="breadcrumb1">
-     <ul>
-        <a href="index.html"><i class="fa fa-home home_1"></i></a>
-        <span class="divider">&nbsp;|&nbsp;</span>
-        <li class="current-page">Login</li>
-     </ul>
-   </div>
-{% include "messages.html" %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
-
-   <div class="services">
-   	  <div class="col-sm-6 login_left">
-	   <form name="LoginForm" action="/login/" method="post">{% csrf_token %}
-  	    <div class="form-group">
-        <label for="usernameInput">Email address</label>
-        <input type="text" class="form-control" id="usernameInput" name="username" placeholder="Username">
-          </div>
-          <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
-          </div>
-	    <div class="form-actions">
-	    	<input type="submit" id="edit-submit" name="op" value="Log in" class="btn_1 submit">
-	    </div>
-           <input type="hidden" name="next" value="{{ next }}" />
-	   </form>
-	  </div>
-	  <div class="col-sm-6">
-	    <ul class="sharing">
-			<li><a href="#" class="facebook" title="Facebook"><i class="fa fa-boxed fa-fw fa-facebook"></i> Share on Facebook</a></li>
-		  	<li><a href="#" class="twitter" title="Twitter"><i class="fa fa-boxed fa-fw fa-twitter"></i> Tweet</a></li>
-		  	<li><a href="#" class="google" title="Google"><i class="fa fa-boxed fa-fw fa-google-plus"></i> Share on Google+</a></li>
-		  	<li><a href="#" class="linkedin" title="Linkedin"><i class="fa fa-boxed fa-fw fa-linkedin"></i> Share on LinkedIn</a></li>
-		  	<li><a href="#" class="mail" title="Email"><i class="fa fa-boxed fa-fw fa-envelope-o"></i> E-mail</a></li>
-		</ul>
-	  </div>
-	  <div class="clearfix"> </div>
-   </div>
+        <a href="/feedback" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+ <img src="/static/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+</a>
 
 
-  </div>
-</div>
+        <script>
+            $(function() {
+                $('#thanksMessage').on('show.bs.modal', function() {
+                    var myModal = $(this);
+                    clearTimeout(myModal.data('hideInterval'));
+                    myModal.data('hideInterval', setTimeout(function() {
+                        myModal.modal('hide');
+                    }, 2000));
+                });
+            });
+        </script>
+        <!--- FEEDBACK MODAL END --->
 
-{% endblock content1 %}
+        <!--- GOOGLE ANALYTICS CODE --->
+        <script>
+            var id = 'UA-demo1';
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', id, 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!--- GOOGLE ANALYTICS CODE END --->
+
+
+    </div>
+
+    <!-- Jquery --->
+    <script src="/static/js/jquery.min.js"></script>
+    <!--- Jquery END --->
+    <!--- BOOTSTRAP AND GREEN JS--->
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/jquery.validate.js"></script>
+    <script src="/static/js/green.js"></script>
+    <!--- BOOTSTRAP AND GREEN JS END--->
+    <!--- LOADER JS--->
+    <script>
+        $(document).ready(function() {
+            $('#body').show();
+            $('.preloader-wrapper').hide();
+        });
+    </script>
+    <!--- LOADER JS END --->
+    <!---- VALIDATION JS --->
+    <script type="text/javascript" src="/static/js/validetta.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#login_form').validetta({
+                errorClose: false,
+                custom: {
+                    regname: {
+                        pattern: /^[\+][0-9]+?$|^[0-9]+?$/,
+                        errorMessage: 'Custom Reg Error Message !'
+                    },
+                    example: {
+                        pattern: /^[\+][0-9]+?$|^[0-9]+?$/,
+                        errorMessage: 'Lan mal !'
+                    }
+                },
+                realTime: true
+            });
+        });
+    </script>
+    <!---- VALIDATION JS END --->
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        dis_thumbnail();
+    });
+
+    function dis_thumbnail() {
+        var dataString = '';
+        jQuery.ajax({
+            url: "./web-services/display_thumbnail",
+            type: "POST",
+            data: dataString,
+            cache: false,
+            success: function(response) {
+                $("#dis_thumbnail").html('');
+                $("#dis_thumbnail").append(response);
+            },
+        });
+    }
+</script>
+
+{% endblock %}
