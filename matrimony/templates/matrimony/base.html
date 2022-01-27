@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!--Required Css and Js-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--End Required Css and Js-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<!--js & css file-->
+<!--CUSTOM CSS FRAMEWORK FROM THE GREEN TECHNOLOGIES WITH BOOTSTRAP-->
+<link href="/static/matrimony/css/bootstrap.css?version=1" rel="stylesheet">
+<link href="/static/matrimony/css/custom-responsive.css?version=1" rel="stylesheet">
+<link href="/static/matrimony/css/custom.css?version=1" rel="stylesheet">
+<!--CUSTOM CSS FRAMEWORK FROM THE GREEN TECHNOLOGIES WITH BOOTSTRAP END-->
+
+<!--CUSTOM FONT ICON FROM THE GREEN TECHNOLOGIES & FONT AWESOME -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="http://greenicon.thegreentech.in/green-font-icons/green-font-icons.min.css" rel="stylesheet">
+<!--CUSTOM FONT ICON FROM THE GREEN TECHNOLOGIES & FONT AWESOME END -->
+
+<!--GOOGLE FONTS-->
+<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+<!--GOOGLE FONTS END-->
+
+<!--OWL CAROUSEL CSS-->
+<link href="/static/matrimony/css/owl.carousel.css" rel="stylesheet">
+<link href="/static/matrimony/css/owl.theme.css" rel="stylesheet">
+<!--OWL CAROUSEL CSS END-->
+
+<!-- CHOSEN CSS -->
+<link rel="stylesheet" href="/static/matrimony/css/prism.css">
+<link rel="stylesheet" href="/static/matrimony/css/chosen.css">
+<!-- CHOSEN CSS END -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+<!-- ANGULAR JS-->
+<script src="/static/matrimony/js/angular.min.js"></script>
+<!-- ANGULAR JS END-->
+<!--end js & css-->
+
+
+
+    <title> {% block title %}
+        {% endblock %} 
+    </title>
+  </head>
+  <body>
+    <!--Header-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Vivah</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!--right-->
+            <ul class="navbar-nav mr-auto">
+
+                
+
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'search' %}">Search</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'success' %}">Success Story</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'membership' %}">Membership</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
+                  </li>
+              </ul> 
+            <!--Left-->
+            <ul class="navbar-nav" style="margin-left: 410px;">
+              {% if request.user.is_authenticated %}
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'myprofile' %}">My Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Change Password</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </li>
+
+            {% else %}
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+                </li>
+                {% endif %}
+              </ul>
+          </div>
+        </div>
+      </nav>
+{% block content %}
+{% endblock %}
+<!--- FOOTER --->
+<footer class="footer-before-login gt-margin-top-25">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-8 col-sm-16 col-md-8">
+                <h5 class="gt-text-green">
+                    Help And Support
+                </h5>
+                <ul class="">
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Refund policy</a></li>
+                </ul>
+            </div>
+            <div class="col-xxl-4 col-xl-4 col-lg-8 col-sm-16 col-md-8">
+                <h5 class="gt-text-green">
+                    Terms & Policy
+                </h5>
+                <ul class="">
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Report Misuse</a></li>
+                </ul>
+            </div>
+            <div class="col-xxl-4 col-xl-4 col-lg-8 col-sm-16 col-md-8">
+                <h5 class="gt-text-green">
+                    Need Help?
+                </h5>
+                <ul class="">
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                    <li><a href="{% url 'membership' %}"><i class="fa fa-star gt-text-orange"></i> Upgrade Membership</a></li>
+                </ul>
+            </div>
+            <div class="col-xxl-4 col-xl-4 col-lg-8 col-sm-16 col-md-8">
+                <h5 class="gt-text-green">
+                    Information
+                </h5>
+                <ul class="">
+                    <li><a href="{% url 'success' %}">Success Story</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-16">
+                <h5 class="gt-text-green">About Us</h5>
+                <p>Welcome to Vivah</p>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-16 text-center">
+                <h5 class="gt-text-green">
+                    Join us on social
+                </h5>
+                <ul class="gt-footer-social">
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="https://www.googleplus.com" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
+                    <li><a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="container-fluid gt-footer-bottom">
+    <div class="row">
+        <div class="container text-center">
+            All Rights Reserved By @ <a href="/">Design and developed by MJD</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+  <!--
+<script>
+ document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("return false")
+</script>
+-->
+
+    <!---- ONLINE CHAT WIDGET--->
+    <script type="text/javascript">
+        var auto_refresh = setInterval(
+            function() {
+                $('#count').load('parts/online').fadeIn("slow");
+            }, 15000); // refresh every 10 second
+    </script>
+    <script src="js/matrimony/jquery.min.js"></script>
+    <small class="pull-right">
+  </small>
+    <!---- ONLINE CHAT WIDGET END--->
+
+
+    <a href="{% url 'feedback' %}" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+ <img src="/static/matrimony/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+</a>
+
+
+    <script>
+        $(function() {
+            $('#thanksMessage').on('show.bs.modal', function() {
+                var myModal = $(this);
+                clearTimeout(myModal.data('hideInterval'));
+                myModal.data('hideInterval', setTimeout(function() {
+                    myModal.modal('hide');
+                }, 2000));
+            });
+        });
+    </script>
+    <!--- FEEDBACK MODAL END --->
+
+    <!--- GOOGLE ANALYTICS CODE --->
+    <script>
+        var id = 'UA-demo1';
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', id, 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!--- GOOGLE ANALYTICS CODE END --->
+
+
+    </div>
+    <!---- JQUERY ----->
+    <script src="/static/matrimony/js/jquery.min.js"></script>
+    <!---- JQUERY END ----->
+    <!--- BOOTSTRAP AND GREEN JS--->
+    <script src="/static/matrimony/js/bootstrap.js"></script>
+    <script src="/static/matrimony/js/green.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#body').show();
+            $('.preloader-wrapper').hide();
+        });
+    </script>
+    <!--- BOOTSTRAP AND GREEN JS END--->
+
+    <!----- CHOSEN JS ---->
+    <script src="/static/matrimony/js/chosen.jquery.js" type="text/javascript"></script>
+    <script src="/static/matrimony/js/prism.js" type="text/javascript" charset="utf-8"></script>
+    <!--- VALIDATION JS --->
+    <script type="text/javascript">
+        function validateForm() {
+            var a = document.forms["frm"]["profile_by"].value;
+            if (a == "") {
+                alert("Select Profile Created By");
+                return false;
+            }
+            var b = document.forms["frm"]["gender"].value;
+            if (b == "") {
+                alert("Select Your Gender");
+                return false;
+            }
+            var c = document.forms["frm"]["nickname"].value;
+            if (c == "") {
+                alert("First name must be filled out");
+                return false;
+            }
+            var d = document.forms["frm"]["lastname"].value;
+            if (c == "") {
+                alert("Last name must be filled out");
+                return false;
+            }
+            var g = document.forms["frm"]["day"].value;
+            if (g == "") {
+                alert("Please select your birthdate");
+                return false;
+            }
+            var h = document.forms["frm"]["month"].value;
+            if (h == "") {
+                alert("Please select your birth month");
+                return false;
+            }
+            var i = document.forms["frm"]["year"].value;
+            if (i == "") {
+                alert("Please select your birth year");
+                return false;
+            }
+            var e = document.forms["frm"]["religion"].value;
+            if (e == "") {
+                alert("Please select religion");
+                return false;
+            }
+            var f = document.forms["frm"]["caste"].value;
+            if (f == "") {
+                alert("Please select caste");
+                return false;
+            }
+            var j = document.forms["frm"]["m_tongue"].value;
+            if (j == "") {
+                alert("Please select mother tongue");
+                return false;
+            }
+            var k = document.forms["frm"]["country"].value;
+            if (k == "") {
+                alert("Please select country");
+                return false;
+            }
+            var l = document.forms["frm"]["code"].value;
+            if (l == "") {
+                alert("Please select country code");
+                return false;
+            }
+            var m = document.forms["frm"]["mobile"].value;
+            if (m == "") {
+                alert("Mobile must be filled out.");
+                return false;
+            }
+            var n = document.forms["frm"]["email"].value;
+            if (n == "") {
+                alert("Email id must be filled out.");
+                return false;
+            }
+        }
+    </script>
+    <!---VALIDATION JS END --->
+
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': {
+                allow_single_deselect: true
+            },
+            '.chosen-select-no-single': {
+                disable_search_threshold: 10
+            },
+            '.chosen-select-no-results': {
+                no_results_text: 'Oops, nothing found!'
+            },
+            '.chosen-select-width': {
+                width: "100%"
+            }
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    </script>
+    <!----- CHOSEN JS END ---->
+
+    <!--- OWL CAROUSEL --->
+    <script src="/static/matrimony/js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo-3").owlCarousel({
+                autoPlay: 3000,
+                items: 5,
+                navigation: true,
+                navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                itemsDesktop: [1199, 5],
+                itemsDesktopSmall: [979, 4],
+                itemsCustom: [
+                    [0, 1],
+                    [450, 1],
+                    [600, 2],
+                    [700, 2],
+                    [800, 3],
+                    [1000, 5],
+                    [1200, 5],
+                    [1400, 5],
+                    [1600, 5]
+                ],
+            });
+            $("#owl-demo-4").owlCarousel({
+                autoPlay: 3000,
+                items: 5,
+                navigation: true,
+                navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                itemsDesktop: [1199, 5],
+                itemsDesktopSmall: [979, 4],
+                itemsCustom: [
+                    [0, 1],
+                    [450, 1],
+                    [600, 2],
+                    [700, 2],
+                    [800, 3],
+                    [1000, 5],
+                    [1200, 5],
+                    [1400, 5],
+                    [1600, 5]
+                ],
+            });
+            $("#owl-demo-2").owlCarousel({
+                autoPlay: 3000,
+                autoPlay: true,
+                items: 1,
+                itemsDesktop: [1199, 1],
+                itemsDesktopSmall: [979, 1],
+                itemsCustom: [
+                    [0, 1],
+                    [450, 1],
+                    [600, 1],
+                    [700, 1],
+                    [1000, 1],
+                    [1200, 1],
+                    [1400, 1],
+                    [1600, 1]
+                ],
+            });
+        });
+    </script>
+    <script>
+        $("#owl-vendor-strip").owlCarousel({
+            autoPlay: 3000,
+            items: 1,
+            navigation: true,
+            navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+            pagination: false,
+
+        });
+    </script>
+
+    <!--- OWL CAROUSEL END--->
+    <!---- CASTE LOADING JS ---->
+    <script type="text/javascript">
+        function check_profileby(status) {
+            $('#nickname').attr("placeholder", status + "'s Name");
+        }
+        $(document).ready(function() {
+            $("#religion").on('change', function() {
+                $("#caste1").html('<div class="gtLoaderBottom"><i class="gi gi-spin gi-loader"></i>&nbsp;&nbsp;Please Wait Loading...</div>');
+                var id = $(this).val();
+                var dataString = 'religionId=' + id;
+                $.ajax({
+                    type: "POST",
+                    url: "ajax_search2",
+                    data: dataString,
+                    cache: false,
+                    success: function(html) {
+                        $("#caste").html(html);
+                        $("#caste1").html('');
+                        $("#caste").trigger("chosen:updated");
+                    }
+                });
+            });
+
+        });
+    </script>
+    <!---- CASTE LOADING JS END---->
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        dis_thumbnail();
+    });
+
+    function dis_thumbnail() {
+        var dataString = '';
+        jQuery.ajax({
+            url: "./web-services/display_thumbnail",
+            type: "POST",
+            data: dataString,
+            cache: false,
+            success: function(response) {
+                $("#dis_thumbnail").html('');
+                $("#dis_thumbnail").append(response);
+            },
+        });
+    }
+</script>
+
+
+
+<script>
+
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+    
+    function showTab(n) {
+      // This function will display the specified tab of the form...
+      var x = document.getElementsByClassName("tab");
+      x[n].style.display = "block";
+      //... and fix the Previous/Next buttons:
+      if (n == 0) {
+        document.getElementById("prevBtn").style.display = "none";
+      } else {
+        document.getElementById("prevBtn").style.display = "inline";
+      }
+      if (n == (x.length - 1)) {
+        document.getElementById("nextBtn").innerHTML = "Submit";
+      } else {
+        document.getElementById("nextBtn").innerHTML = "Next";
+      }
+      //... and run a function that will display the correct step indicator:
+      fixStepIndicator(n)
+    }
+    
+    function nextPrev(n) {
+      // This function will figure out which tab to display
+      var x = document.getElementsByClassName("tab");
+      // Exit the function if any field in the current tab is invalid:
+      if (n == 1 && !validateForm()) return false;
+      // Hide the current tab:
+      x[currentTab].style.display = "none";
+      // Increase or decrease the current tab by 1:
+      currentTab = currentTab + n;
+      // if you have reached the end of the form...
+      if (currentTab >= x.length) {
+        // ... the form gets submitted:
+        document.getElementById("regForm").submit();
+        return false;
+      }
+      // Otherwise, display the correct tab:
+      showTab(currentTab);
+    }
+    
+    function validateForm() {
+      // This function deals with validation of the form fields
+      var x, y, i, valid = true;
+      x = document.getElementsByClassName("tab");
+      y = x[currentTab].getElementsByTagName("input");
+      // A loop that checks every input field in the current tab:
+      for (i = 0; i < y.length; i++) {
+        // If a field is empty...
+        if (y[i].value == "") {
+          // add an "invalid" class to the field:
+          y[i].className += " invalid";
+          // and set the current valid status to false
+          valid = false;
+        }
+      }
+      // If the valid status is true, mark the step as finished and valid:
+      if (valid) {
+        document.getElementsByClassName("step")[currentTab].className += " finish";
+      }
+      return valid; // return the valid status
+    }
+    
+    function fixStepIndicator(n) {
+      // This function removes the "active" class of all steps...
+      var i, x = document.getElementsByClassName("step");
+      for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" active", "");
+      }
+      //... and adds the "active" class on the current step:
+      x[n].className += " active";
+    }
+    </script>
+            
+    
+    <script type="text/javascript">
+           var auto_refresh = setInterval(
+                    function() {
+                        $('#count').load('parts/online').fadeIn("slow");
+                    }, 15000); // refresh every 10 second
+            </script>
+    <script src="/static/matrimonyjs/jquery.min.js"></script>
+            <!---- ONLINE CHAT WIDGET END--->
+    
+    
+        <a href="{% url 'feedback' %}" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+     <img src="/static/matrimony/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+    </a>
+    
+    
+            <script>
+                $(function() {
+                    $('#thanksMessage').on('show.bs.modal', function() {
+                        var myModal = $(this);
+                        clearTimeout(myModal.data('hideInterval'));
+                        myModal.data('hideInterval', setTimeout(function() {
+                            myModal.modal('hide');
+                        }, 2000));
+                    });
+                });
+            </script>
+            <!--- FEEDBACK MODAL END --->
+    
+            <!--- GOOGLE ANALYTICS CODE --->
+            <script>
+                var id = 'UA-demo1';
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    
+                ga('create', id, 'auto');
+                ga('send', 'pageview');
+            </script>
+            <!--- GOOGLE ANALYTICS CODE END --->
+    
+    
+        </div>
+    
+        <!-- Jquery --->
+        <script src="/static/matrimony/js/jquery.min.js"></script>
+        <!--- Jquery END --->
+        <!--- BOOTSTRAP AND GREEN JS--->
+        <script src="/static/matrimony/js/bootstrap.js"></script>
+        <script src="/static/matrimony/js/jquery.validate.js"></script>
+        <script src="/static/matrimony/js/green.js"></script>
+        <!--- BOOTSTRAP AND GREEN JS END--->
+        <!--- LOADER JS--->
+        <script>
+            $(document).ready(function() {
+                $('#body').show();
+                $('.preloader-wrapper').hide();
+            });
+        </script>
+        <!--- LOADER JS END --->
+        <!---- VALIDATION JS --->
+        <script type="text/javascript" src="/static/matrimony/js/validetta.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#login_form').validetta({
+                    errorClose: false,
+                    custom: {
+                        regname: {
+                            pattern: /^[\+][0-9]+?$|^[0-9]+?$/,
+                            errorMessage: 'Custom Reg Error Message !'
+                        },
+                        example: {
+                            pattern: /^[\+][0-9]+?$|^[0-9]+?$/,
+                            errorMessage: 'Lan mal !'
+                        }
+                    },
+                    realTime: true
+                });
+            });
+        </script>
+        <!---- VALIDATION JS END --->
+    
+    <script>
+        $(document).ready(function() {
+            dis_thumbnail();
+        });
+    
+        function dis_thumbnail() {
+            var dataString = '';
+            jQuery.ajax({
+                url: "./web-services/display_thumbnail",
+                type: "POST",
+                data: dataString,
+                cache: false,
+                success: function(response) {
+                    $("#dis_thumbnail").html('');
+                    $("#dis_thumbnail").append(response);
+                },
+            });
+        }
+    </script>
+
+
+<!--- FOOTER END--->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    {% block js %}
+
+    {% endblock %}
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

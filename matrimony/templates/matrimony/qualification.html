@@ -1,0 +1,470 @@
+{% extends './base.html' %}
+{% block title%}
+Qualifictaion
+{% endblock%}
+{% block content %}
+                <!-- To decrese notification count when click on notification-->
+                <script>
+                    function notification(noti_id) {
+                        $.ajax({
+                            url: "web-services/notification",
+                            type: "POST",
+                            data: "noti_id=" + noti_id,
+                            cache: false,
+                            success: function(response) {
+                                location.reload();
+
+                            }
+                        });
+                        return true;
+                    }
+                </script>
+                <!-- HEADER END-->
+                <div class="container">
+
+                    <div class="row gt-margin-top-20">
+
+                        <div class="col-xxl-8 col-xxl-offset-4  col-xl-8 col-xl-offset-4">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <div class="gt-panel">
+                                        <div class="gt-panel-border-green">
+                                            <h2 class="text-center">Education Details</h2>
+                                            <p class="text-center">Give us your Education Details.</p>
+                                            {% if error %}
+                                            <p class="text-center"><strong>{{error}}</strong></p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="gt-panel-body">
+                                            <div class="row">
+                                                <div class="col-xxl-16">
+                                                    <form action="" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="form-group">
+                                                            <label>Highest Education</label>
+                                                            <select class="gt-form-control" data-validetta="required" name="education">
+                                                            <option value="">
+                                                                Select Your Highest Education
+                                                            </option>
+                                                            <option value="88">Any PG Degree</option>
+                                                            <option value="87">Any UG Degree</option>
+                                                            <option value="9">B Arch</option>
+                                                            <option value="16">B Com</option>
+                                                            <option value="15">B Phil</option>
+                                                            <option value="10">B Plan</option>
+                                                            <option value="12">B Tech</option>
+                                                            <option value="60">B.Pharm</option>
+                                                            <option value="17">BA</option>
+                                                            <option value="67">Bachelor Of Law</option>
+                                                            <option value="54">Bachelor Of Veterinary Science</option>
+                                                            <option value="52">BAMS</option>
+                                                            <option value="25">BBA</option>
+                                                            <option value="8">BCA</option>
+                                                            <option value="48">BDS</option>
+                                                            <option value="11">BE</option>
+                                                            <option value="22">BEd</option>
+                                                            <option value="18">BFA</option>
+                                                            <option value="26">BFM (Financial Management)</option>
+                                                            <option value="66">BGL</option>
+                                                            <option value="24">BHM</option>
+                                                            <option value="50">BHMS</option>
+                                                            <option value="19">BLIS</option>
+                                                            <option value="21">BMM (MASS MEDIA)</option>
+                                                            <option value="58">BPT</option>
+                                                            <option value="13">BSc Computer Science</option>
+                                                            <option value="14">BSc IT</option>
+                                                            <option value="62">BSc Nursing</option>
+                                                            <option value="20">BSW</option>
+                                                            <option value="72">CA Final</option>
+                                                            <option value="71">CA Inter</option>
+                                                            <option value="75">CFA (Chartered Financial Analyst)</option>
+                                                            <option value="74">Company Secretary (CS)</option>
+                                                            <option value="56">Degree In Medicine</option>
+                                                            <option value="80">Diploma</option>
+                                                            <option value="64">Diploma In Nursing</option>
+                                                            <option value="47">DM - Doctorate Of Medicine</option>
+                                                            <option value="82">High School</option>
+                                                            <option value="77">IAS</option>
+                                                            <option value="73">ICWA</option>
+                                                            <option value="78">IPS</option>
+                                                            <option value="79">IRS</option>
+                                                            <option value="83">Less Than High School</option>
+                                                            <option value="68">LLB</option>
+                                                            <option value="70">LLM</option>
+                                                            <option value="28">M Arch</option>
+                                                            <option value="35">M Com</option>
+                                                            <option value="34">M Phil</option>
+                                                            <option value="36">M Sc</option>
+                                                            <option value="31">M Tech</option>
+                                                            <option value="61">M.Pharm</option>
+                                                            <option value="37">MA</option>
+                                                            <option value="53">MAMS</option>
+                                                            <option value="57">Master In Medicine</option>
+                                                            <option value="69">Master Of Law</option>
+                                                            <option value="55">Master Of Veterinary Science</option>
+                                                            <option value="41">MBA</option>
+                                                            <option value="44">MBBS</option>
+                                                            <option value="29">MCA</option>
+                                                            <option value="46">MCh - Master Of Chirurgiae</option>
+                                                            <option value="45">MD / MS (Medical)</option>
+                                                            <option value="49">MDS</option>
+                                                            <option value="27">ME</option>
+                                                            <option value="23">MEd</option>
+                                                            <option value="65">Medical Laboratory Technology</option>
+                                                            <option value="43">MFM (Financial Management)</option>
+                                                            <option value="40">MHM</option>
+                                                            <option value="51">MHMS</option>
+                                                            <option value="38">MLIS</option>
+                                                            <option value="59">MPT</option>
+                                                            <option value="32">MSc Computer Science</option>
+                                                            <option value="33">MSc IT</option>
+                                                            <option value="63">MSc Nursing</option>
+                                                            <option value="39">MSW</option>
+                                                            <option value="84">Other Education</option>
+                                                            <option value="30">PGDCA</option>
+                                                            <option value="42">PGDM</option>
+                                                            <option value="76">Ph D</option>
+                                                            <option value="81">Polytechnic</option>
+                                                        </select>                                                        
+                                                                                                                
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Occupation</label>
+                                                            <select class="gt-form-control" data-validetta="required" name="occupation">
+                                                                <option value="">
+                                                                    Select Your Occupation
+                                                                </option>
+                                                                <option value="18">Civil Engineer</option>
+                                                                <option value="19">Clerical Official</option>
+                                                                <option value="20">Commercial Pilot</option>
+                                                                <option value="21">Company Secretary</option>
+                                                                <option value="22">Computer Professional</option>
+                                                                <option value="23">Consultant</option>
+                                                                <option value="24">Contractor</option>
+                                                                <option value="25">Cost Accountant</option>
+                                                                <option value="26">Creative Person</option>
+                                                                <option value="27">Customer Support Professional</option>
+                                                                <option value="28">Defense Employee</option>
+                                                                <option value="29">Dentist</option>
+                                                                <option value="30">Designer</option>
+                                                                <option value="31">Doctor</option>
+                                                                <option value="32">Economist</option>
+                                                                <option value="33">Engineer</option>
+                                                                <option value="34">Engineer (Mechanical)</option>
+                                                                <option value="35">Engineer (Project)</option>
+                                                                <option value="36">Entertainment Professional</option>
+                                                                <option value="37">Event Manager</option>
+                                                                <option value="38">Executive</option>
+                                                                <option value="39">Factory worker</option>
+                                                                <option value="40">Farmer</option>
+                                                                <option value="41">Fashion Designer</option>
+                                                                <option value="42">Finance Professional</option>
+                                                                <option value="43">Flight Attendant</option>
+                                                                <option value="44">Government Employee</option>
+                                                                <option value="45">Health Care Professional</option>
+                                                                <option value="46">Home Maker</option>
+                                                                <option value="47">Hotel & Restaurant Professional</option>
+                                                                <option value="48">Human Resources Professional</option>
+                                                                <option value="49">Interior Designer</option>
+                                                                <option value="50">Investment Professional</option>
+                                                                <option value="51">IT / Telecom Professional</option>
+                                                                <option value="52">Journalist</option>
+                                                                <option value="53">Lawyer</option>
+                                                                <option value="54">Lecturer</option>
+                                                                <option value="55">Legal Professional</option>
+                                                                <option value="56">Manager</option>
+                                                                <option value="57">Marketing Professional</option>
+                                                                <option value="58">Media Professional</option>
+                                                                <option value="59">Medical Professional</option>
+                                                                <option value="60">Medical Transcriptionist</option>
+                                                                <option value="61">Merchant Naval Officer</option>
+                                                                <option value="95">Not Working</option>
+                                                                <option value="62">Nurse</option>
+                                                                <option value="63">Occupational Therapist</option>
+                                                                <option value="64">Optician</option>
+                                                                <option value="94">Others</option>
+                                                                <option value="65">Pharmacist</option>
+                                                                <option value="66">Physician Assistant</option>
+                                                                <option value="67">Physicist</option>
+                                                                <option value="68">Physiotherapist</option>
+                                                                <option value="69">Pilot</option>
+                                                                <option value="70">Politician</option>
+                                                                <option value="71">Production professional</option>
+                                                                <option value="72">Professor</option>
+                                                                <option value="73">Psychologist</option>
+                                                                <option value="74">Public Relations Professional</option>
+                                                                <option value="75">Real Estate Professional</option>
+                                                                <option value="76">Research Scholar</option>
+                                                                <option value="78">Retail Professional</option>
+                                                                <option value="77">Retired Person</option>
+                                                                <option value="79">Sales Professional</option>
+                                                                <option value="80">Scientist</option>
+                                                                <option value="81">Self-employed Person</option>
+                                                                <option value="82">Social Worker</option>
+                                                                <option value="83">Software Consultant</option>
+                                                                <option value="84">Sportsman</option>
+                                                                <option value="85">Student</option>
+                                                                <option value="86">Teacher</option>
+                                                                <option value="87">Technician</option>
+                                                                <option value="88">Training Professional</option>
+                                                                <option value="89">Transportation Professional</option>
+                                                                <option value="90">Veterinary Doctor</option>
+                                                                <option value="91">Volunteer</option>
+                                                                <option value="92">Writer</option>
+                                                                <option value="93">Zoologist</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Employed In</label>
+                                                            <div></div>
+                                                            <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Government">Government</label>
+                                                            <input type="radio" name="employedin" value="Government" id="Government" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        
+
+                                                            <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Private">Private</label>
+                                                            <input type="radio" name="employedin" value="Private" id="Private" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        
+
+                        <div class="clearfix visible-xs"></div>
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Business">Business</label>
+                        <input type="radio" name="employedin" value="Business" id="Business" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Defence">Defence</label>                                    
+                        <input type="radio" name="employedin" value="Defence" id="Defence" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Self-Employed">Self Employed</label>
+                        <input type="radio" name="employedin" value="Self-Employed" id="Self-Employed" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Not-Working">Not Working</label>                                    
+                        <input type="radio" name="employedin" value="Not Working" id="Not-Working" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        
+                                                        
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Annual Income</label>
+                        <select class="gt-form-control" name="income">
+                            <option value="">Select Annual Income</option>
+                            <option value="Rs 10,000 - 50,000">Rs 10,000 - 50,000</option>
+                            <option value="Rs 50,000 - 1,00,000">Rs 50,000 - 1,00,000</option>
+                            <option value="Rs 1,00,000 - 2,00,000">Rs 1,00,000 - 2,00,000</option>
+                            <option value="Rs 2,00,000 - 4,00,000">Rs 2,00,000 - 4,00,000</option>
+                            <option value="Rs 4,00,000 - 6,00,000">Rs 4,00,000 - 6,00,000</option>
+                            <option value="Rs 6,00,000 - 8,00,000">Rs 6,00,000 - 8,00,000</option>
+                            <option value="Rs 8,00,000 - 10,00,000">Rs 8,00,000 - 10,00,000</option>
+                            <option value="Rs 10,00,000 - 12,00,000">Rs 10,00,000 - 12,00,000</option>
+                            <option value="Rs 12,00,000 - 14,00,000">Rs 12,00,000 - 14,00,000</option>
+                            <option value="Rs 14,00,000 - 16,00,000">Rs 14,00,000 - 16,00,000</option>
+                            <option value="Rs 16,00,000 - 18,00,000">Rs 16,00,000 - 18,00,000</option>
+                            <option value="Rs 18,00,000 - 20,00,000">Rs 18,00,000 - 20,00,000</option>
+                            <option value="Rs 20,00,000 - 22,00,000">Rs 20,00,000 - 22,00,000</option>
+                            <option value="Rs 22,00,000 - 24,00,000">Rs 22,00,000 - 24,00,000</option>
+                            <option value="Rs 24,00,000 - 26,00,000">Rs 24,00,000 - 26,00,000</option>
+                            <option value="Rs 26,00,000 - 28,00,000">Rs 26,00,000 - 28,00,000</option>
+                            <option value="Rs 28,00,000 - 30,00,000">Rs 28,00,000 - 30,00,000</option>
+                            <option value="Rs 30,00,000 - 32,00,000">Rs 30,00,000 - 32,00,000</option>
+                            <option value="Rs 32,00,000 - 34,00,000">Rs 32,00,000 - 34,00,000</option>
+                            <option value="Rs 34,00,000 - 36,00,000">Rs 34,00,000 - 36,00,000</option>
+                            <option value="Rs 36,00,000 - 38,00,000">Rs 36,00,000 - 38,00,000</option>
+                            <option value="Rs 38,00,000 - 40,00,000">Rs 38,00,000 - 40,00,000</option>
+                            <option value="Rs 40,00,000 - 42,00,000">Rs 40,00,000 - 42,00,000</option>
+                            <option value="Rs 42,00,000 - 44,00,000">Rs 42,00,000 - 44,00,000</option>
+                            <option value="Rs 44,00,000 - 46,00,000">Rs 44,00,000 - 46,00,000</option>
+                            <option value="Rs 46,00,000 - 48,00,000">Rs 46,00,000 - 48,00,000</option>
+                            <option value="Rs 48,00,000 - 50,00,000">Rs 48,00,000 - 50,00,000</option>
+                            <option value="Rs 50,00,000 - 52,00,000">Rs 50,00,000 - 52,00,000</option>
+                            <option value="Rs 52,00,000 - 54,00,000">Rs 52,00,000 - 54,00,000</option>
+                            <option value="Rs 54,00,000 - 56,00,000">Rs 54,00,000 - 56,00,000</option>
+                            <option value="Rs 56,00,000 - 58,00,000">Rs 56,00,000 - 58,00,000</option>
+                            <option value="Rs 58,00,000 - 60,00,000">Rs 58,00,000 - 60,00,000</option>
+                            <option value="Rs 60,00,000 - 62,00,000">Rs 60,00,000 - 62,00,000</option>
+                            <option value="Rs 62,00,000 - 64,00,000">Rs 62,00,000 - 64,00,000</option>
+                            <option value="Rs 64,00,000 - 66,00,000">Rs 64,00,000 - 66,00,000</option>
+                            <option value="Rs 66,00,000 - 68,00,000">Rs 66,00,000 - 68,00,000</option>
+                            <option value="Rs 68,00,000 - 70,00,000">Rs 68,00,000 - 70,00,000</option>
+                            <option value="Rs 70,00,000 - 72,00,000">Rs 70,00,000 - 72,00,000</option>
+                            <option value="Rs 72,00,000 - 74,00,000">Rs 72,00,000 - 74,00,000</option>
+                            <option value="Rs 74,00,000 - 76,00,000">Rs 74,00,000 - 76,00,000</option>
+                            <option value="Rs 76,00,000 - 78,00,000">Rs 76,00,000 - 78,00,000</option>
+                            <option value="Rs 78,00,000 - 80,00,000">Rs 78,00,000 - 80,00,000</option>
+                            <option value="Rs 80,00,000 - 82,00,000">Rs 80,00,000 - 82,00,000</option>
+                            <option value="Rs 82,00,000 - 84,00,000">Rs 82,00,000 - 84,00,000</option>
+                            <option value="Rs 84,00,000 - 86,00,000">Rs 84,00,000 - 86,00,000</option>
+                            <option value="Rs 86,00,000 - 88,00,000">Rs 86,00,000 - 88,00,000</option>
+                            <option value="Rs 88,00,000 - 90,00,000">Rs 88,00,000 - 90,00,000</option>
+                            <option value="Rs 90,00,000 - 92,00,000">Rs 90,00,000 - 92,00,000</option>
+                            <option value="Rs 92,00,000 - 94,00,000">Rs 92,00,000 - 94,00,000</option>
+                            <option value="Rs 94,00,000 - 96,00,000">Rs 94,00,000 - 96,00,000</option>
+                            <option value="Rs 96,00,000 - 98,00,000">Rs 96,00,000 - 98,00,000</option>
+                            <option value="Rs 98,00,000 - 1,00,00,000">Rs 98,00,000 - 1,00,00,000</option>
+                            <option value="Above Rs 1,00,00,000">Above Rs 1,00,00,000</option>
+                            <option value="Not Working">Not Working</option>
+                           
+                        </select>
+                    </div>
+                </div>                               
+            </div>                                            
+                <div class="form-group text-center">
+                <input type="submit" value="Submit"  class="btn gt-btn-green btn-lg">
+                                                			
+                </div>
+                </form>
+                 </div>
+         </div>
+    </div>
+        </div>
+    </div>
+</div>
+    </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container gt-margin-top-10">
+</div>
+
+        <!--- FOOTER --->
+        <!--- FOOTER END--->
+
+        <!--
+<script>
+ document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("return false")
+</script>
+-->
+
+        <!---- ONLINE CHAT WIDGET--->
+        <script type="text/javascript">
+            var auto_refresh = setInterval(
+                function() {
+                    $('#count').load('parts/online').fadeIn("slow");
+                }, 15000); // refresh every 10 second
+        </script>
+        <script src="/static/matrimony/js/jquery.min.js"></script>
+        <small class="pull-right">
+  </small>
+        <!---- ONLINE CHAT WIDGET END--->
+
+
+        <a href="{% url 'feedback' %}" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+ <img src="/static/matrimony/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+</a>
+
+
+        <script>
+            $(function() {
+                $('#thanksMessage').on('show.bs.modal', function() {
+                    var myModal = $(this);
+                    clearTimeout(myModal.data('hideInterval'));
+                    myModal.data('hideInterval', setTimeout(function() {
+                        myModal.modal('hide');
+                    }, 2000));
+                });
+            });
+        </script>
+        <!--- FEEDBACK MODAL END --->
+
+        <!--- GOOGLE ANALYTICS CODE --->
+        <script>
+            var id = 'UA-demo1';
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', id, 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!--- GOOGLE ANALYTICS CODE END --->
+
+
+    </div>
+    <!-- Jquery --->
+    <script src="/static/matrimony/js/jquery.min.js"></script>
+    <!--- Jquery END --->
+
+    <!--- BOOTSTRAP AND GREEN JS--->
+    <script src="/static/matrimony/js/bootstrap.js"></script>
+    <script src="/static/matrimony/js/jquery.validate.js"></script>
+    <script src="/static/matrimony/js/green.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#contact-btn").click(function() {
+                $("#contactform").validate();
+            });
+        });
+    </script>
+    <!--- BOOTSTRAP AND GREEN JS END--->
+    <!--- LOADER JS--->
+    <script>
+        $(document).ready(function() {
+            $('#body').show();
+            $('.preloader-wrapper').hide();
+        });
+    </script>
+    <!--- LOADER JS END --->
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        dis_thumbnail();
+    });
+
+    function dis_thumbnail() {
+        var dataString = '';
+        jQuery.ajax({
+            url: "./web-services/display_thumbnail",
+            type: "POST",
+            data: dataString,
+            cache: false,
+            success: function(response) {
+                $("#dis_thumbnail").html('');
+                $("#dis_thumbnail").append(response);
+            },
+        });
+    }
+</script>
+
+{% endblock %}

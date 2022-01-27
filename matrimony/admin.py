@@ -1,44 +1,59 @@
 from django.contrib import admin
-from matrimony.models import Customer,PersonalInfo,PhysicalAttribute,Education,Habit,Horoscope,Aboutus,Family
+from django.contrib.auth.models import User
+from matrimony.model import Feedback, Profile,PersonalInfo,PhysicalAttribute,Qualification,Habit,Horoscope,FamilyDetails,PhotoAlbum,Kyc
+from django.utils.html import format_html
 # Register your models here.
-
-
-class PersonalInfoAdmin(admin.StackedInline):
+'''
+class PersonalInfoAdmin(admin.ModelAdmin):
     model = PersonalInfo
 
-class PhysicalAttributeAdmin(admin.StackedInline):
+class PhysicalAttributeAdmin(admin.ModelAdmin):
     model = PhysicalAttribute
 
-class EducationAdmin(admin.StackedInline):
-    model = Education
+class QualificationAdmin(admin.ModelAdmin):
+    model = Qualification
 
-class HabitAdmin(admin.StackedInline):
+class HabitAdmin(admin.ModelAdmin):
     model = Habit
 
-class HoroscopeAdmin(admin.StackedInline):
+class HoroscopeAdmin(admin.ModelAdmin):
     model = Horoscope
 
+class FamilyDetailsAdmin(admin.ModelAdmin):
+    model = FamilyDetails
 
-class FamilyAdmin(admin.StackedInline):
-    model = Family
+class PhotoAlbumAdmin(admin.ModelAdmin):
+    model = PhotoAlbum
 
-class AboutusAdmin(admin.StackedInline):
-    model = Aboutus
+class KycAdmin(admin.ModelAdmin):
+    model = Kyc
 
-class PersonalInfoAdmin(admin.StackedInline):
-    model = PersonalInfo
+class DataAdmin(admin.ModelAdmin):
+    inlines = [PersonalInfoAdmin,PhysicalAttributeAdmin,QualificationAdmin,HabitAdmin,HoroscopeAdmin,FamilyDetailsAdmin,PhotoAlbumAdmin,KycAdmin]
+'''
+class FeedbackAdmin(admin.ModelAdmin):
+    model = Feedback
+    list_display =['name','email','phone','description']
+    list_filter =['email','phone']
 
-class CustomerAdmin(admin.ModelAdmin):
-    inlines = [PersonalInfoAdmin,PhysicalAttributeAdmin,EducationAdmin,HabitAdmin,HoroscopeAdmin,FamilyAdmin,AboutusAdmin]
+class ProfileAdmin(admin.ModelAdmin):
+    def thumbnail(self, object):
+        try:
+            return format_html(f'<img src= "{{}}" width=”30" style=”border-radius:50%;”>'.format(object.image.url))
+        except:
+            pass
 
-
-
-    
-admin.site.register(Customer,CustomerAdmin)
+admin.site.register(Profile,ProfileAdmin)
 admin.site.register(PersonalInfo)
 admin.site.register(PhysicalAttribute)
-admin.site.register(Education)
+admin.site.register(Qualification)
 admin.site.register(Habit)
 admin.site.register(Horoscope)
-admin.site.register(Family)
-admin.site.register(Aboutus)
+admin.site.register(FamilyDetails)
+admin.site.register(PhotoAlbum)
+admin.site.register(Kyc)
+admin.site.register(Feedback,FeedbackAdmin)
+
+
+
+        

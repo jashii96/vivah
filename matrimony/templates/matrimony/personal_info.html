@@ -1,0 +1,775 @@
+{% extends './base.html' %}
+{% block title%}
+Personal Info
+{% endblock%}
+{% block content %}
+                <!-- To decrese notification count when click on notification-->
+                <script>
+                    function notification(noti_id) {
+                        $.ajax({
+                            url: "web-services/notification",
+                            type: "POST",
+                            data: "noti_id=" + noti_id,
+                            cache: false,
+                            success: function(response) {
+                                location.reload();
+
+                            }
+                        });
+                        return true;
+                    }
+                </script>
+                <!-- HEADER END-->
+                <div class="container">
+
+                    <div class="row gt-margin-top-20">
+
+                        <div class="col-xxl-8 col-xxl-offset-4  col-xl-8 col-xl-offset-4">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <div class="gt-panel">
+                                        <div class="gt-panel-border-green">
+                                            <h2 class="text-center">Personal Information</h2>
+                                            <p class="text-center">.</p>
+                                            {% if error %}
+                                            <p class="text-center"><strong>{{error}}</strong></p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="gt-panel-body">
+                                            <div class="row">
+                                                <div class="col-xxl-16">
+                                                    <form action="" method="post">
+                                                        {% csrf_token %}
+                                                        
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Mobile No.</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <input type="text" class="gt-form-control " name="mobile" id="mobile" data-validetta="required" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Gender</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                                                                    <input type="radio" name="mstatus" value="Never Married" id="never-married" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('never-married')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="never-married">Male</label>
+                                                                    <input type="radio" name="mstatus" value="Widow" id="widow" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('widow')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="widower">Female</label>
+                                                                    <div class="clearfix visible-xs visible-sm"></div>
+                                            
+                                                                    <input type="radio" name="mstatus" value="Divorced" id="divorced" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('divorced')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="divorced">Others</label>
+                                            
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Date Of Birth</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <input type="date" class="gt-form-control"  style="height: 10px;" name="dob"  data-validetta="required" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Marital status</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                                                                    <input type="radio" name="mstatus" value="Never Married" id="never-married" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('never-married')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="never-married">Never Married</label>
+                                                                    <input type="radio" name="mstatus" value="Widow" id="widow" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('widow')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="widower">Widow</label>
+                                                                    <div class="clearfix visible-xs visible-sm"></div>
+                                            
+                                                                    <input type="radio" name="mstatus" value="Divorced" id="divorced" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('divorced')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="divorced">Divorced</label>
+                                            
+                                            
+                                                                    <input type="radio" name="mstatus" value="Awaiting Divorce" id="awaiting-divorce" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required" onClick="check_ststus('awaiting-divorce')">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="awaiting-divorce">Awaiting Divorce</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="dis_child">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>No. of children</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control" name="no_child" onchange="check_child(this.value)">
+                                                                        <option value="">Select</option>
+                                                                        <option value="Zero">None</option>
+                                                                        <option value="One">One</option>
+                                                                        <option value="Two">Two</option>
+                                                                        <option value="Three">Three</option>
+                                                                        <option value="Four and above">Four and above</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="dis_child_status">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                      <b>Children Living Status</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control" name="child_status">
+                                                                        <option value="">Select</option>
+                                                                        <option value="Living with me">Living with me</option>
+                                                                        <option value="Not living with me">Not living with me</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Religion</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control chosen-select " id="religion" name="religion" data-validetta="required">
+                                                                        <option value="">
+                                                                            Select Your Religion 
+                                                                        </option>
+                                                                        <option value="Athiest" >Athiest</option>
+                                                                        <option value="Budhisam" >Buddhisam</option>                                        
+                                                                        <option value="Buddhist" >Buddhist</option>
+                                                                        <option value="Christian" >Christian</option>
+                                                                        <option value="Hindu" >Hindu</option>
+                                                                        <option value="Jain - Digambar" >Jain - Digambar</option>
+                                                                        <option value="Jain - Shwetambar" >Jain - Shwetambar</option>
+                                                                        <option value="Jewish" >Jewish</option>
+                                                                        <option value="Judaism" >Judaism</option>
+                                                                        <option value="Muslim" >Muslim</option>
+                                                                        <option value="Muslim-Shia">Muslim - Shia</option>
+                                                                        <option value="Sikh" >Sikh</option>
+                                                                        <option value="Others" >Other Religion</option>
+                                                                        
+                                                                        </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Caste</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control chosen-select" id="caste" name="caste" data-validetta="required">
+                                                                        <option value="">Select Your Related Caste </option>
+                                                                                
+                                                                            <option value="Muslim - Ansari" >Muslim - Ansari</option>
+                                                                                        
+                                                                            <option value="Muslim - Arain" selected>Muslim - Arain</option>
+                                                                                        
+                                                                            <option value="Muslim - Awan" >Muslim - Awan</option>
+                                                                                        
+                                                                            <option value="Muslim - Bohra" >Muslim - Bohra</option>
+                                                                                        
+                                                                            <option value="Muslim - Dekkani" >Muslim - Dekkani</option>
+                                                                                        
+                                                                            <option value="Muslim - Dudekula" >Muslim - Dudekula</option>
+                                                                                        
+                                                                            <option value="Muslim - Hanafi" >Muslim - Hanafi</option>
+                                                                                        
+                                                                            <option value="Muslim - Jat" >Muslim - Jat</option>
+                                                                                        
+                                                                            <option value="Muslim - Khoja" >Muslim - Khoja</option>
+                                                                                        
+                                                                            <option value="Muslim - Lebbai" >Muslim - Lebbai</option>
+                                                                                        
+                                                                            <option value="Muslim - Malik" >Muslim - Malik</option>
+                                                                                        
+                                                                            <option value="Muslim - Mapila" >Muslim - Mapila</option>
+                                                                                        
+                                                                            <option value="Muslim - Maraicar" >Muslim - Maraicar</option>
+                                                                                        
+                                                                            <option value="Muslim - Memon" >Muslim - Memon</option>
+                                                                                        
+                                                                            <option value="Muslim - Mughal" >Muslim - Mughal</option>
+                                                                                        
+                                                                            <option value="Muslim - Others" >Muslim - Others</option>
+                                                                                        
+                                                                            <option value="Muslim - Pathan" >Muslim - Pathan</option>
+                                                                                        
+                                                                            <option value="Muslim - Qureshi" >Muslim - Qureshi</option>
+                                                                                        
+                                                                            <option value="Muslim - Rajput" >Muslim - Rajput</option>
+                                                                                        
+                                                                            <option value="Muslim - Rowther" >Muslim - Rowther</option>
+                                                                                        
+                                                                            <option value="Muslim - Shafi" >Muslim - Shafi</option>
+                                                                                        
+                                                                            <option value="Muslim - Sheikh" >Muslim - Sheikh</option>
+                                                                                        
+                                                                            <option value="Muslim - Siddiqui" >Muslim - Siddiqui</option>
+                                                                                        
+                                                                            <option value="Muslim - Syed" >Muslim - Syed</option>
+                                                                                        
+                                                                            <option value="Muslim - UnSpecified" >Muslim - UnSpecified</option>
+                                                                                                        </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Mother Tongue</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control chosen-select" id="m_tongue" name="m_tongue" data-validetta="required">
+                                                                        <option value="">Select Your Mother Tongue </option>
+                                                                        <option value="59" selected>Angika</option>
+                                                                        <option value="60" >Arunachali</option>
+                                                                        <option value="61" >Assamese</option>
+                                                                        <option value="62" >Awadhi</option>
+                                                                        <option value="67" >Badaga</option>
+                                                                        <option value="63" >Bengali</option>
+                                                                        <option value="64" >Bhojpuri</option>
+                                                                        <option value="66" >Bihari</option>
+                                                                        <option value="65" >Brij</option>
+                                                                        <option value="68" >Chatisgarhi</option>
+                                                                        <option value="69" >Dogri</option>
+                                                                        <option value="70" >English</option>
+                                                                        <option value="71" >French</option>
+                                                                        <option value="72" >Garhwali</option>
+                                                                        <option value="73" >Garo</option>
+                                                                        <option value="74" >Gujarati</option>
+                                                                        <option value="75" >Haryanvi</option>
+                                                                        <option value="76" >Himachali/Pahari</option>
+                                                                        <option value="77" >Hindi</option>
+                                                                        <option value="78" >Kanauji</option>
+                                                                        <option value="79" >Kannada</option>
+                                                                        <option value="80" >Kashmiri</option>
+                                                                        <option value="81" >Khandesi</option>
+                                                                        <option value="82" >Khasi</option>
+                                                                        <option value="83" >Konkani</option>
+                                                                        <option value="84" >Koshali</option>
+                                                                        <option value="85" >Kumaoni</option>
+                                                                        <option value="86" >Kutchi</option>
+                                                                        <option value="88" >Ladacki</option>
+                                                                        <option value="87" >Lepcha</option>
+                                                                        <option value="89" >Magahi</option>
+                                                                        <option value="90" >Maithili</option>
+                                                                        <option value="91" >Malayalam</option>
+                                                                        <option value="92" >Manipuri</option>
+                                                                        <option value="93" >Marathi</option>
+                                                                        <option value="94" >Marwari</option>
+                                                                        <option value="95" >Miji</option>
+                                                                        <option value="96" >Mizo</option>
+                                                                        <option value="97" >Monpa</option>
+                                                                        <option value="99" >Nepali</option>
+                                                                        <option value="98" >Nicobarese</option>
+                                                                        <option value="100" >Oriya</option>
+                                                                        <option value="101" >Punjabi</option>
+                                                                        <option value="102" >Rajasthani</option>
+                                                                        <option value="103" >Sanskrit</option>
+                                                                        <option value="104" >Santhali</option>
+                                                                        <option value="105" >Sindhi</option>
+                                                                        <option value="106" >Sourashtra</option>
+                                                                        <option value="107" >Tamil</option>
+                                                                        <option value="108" >Telugu</option>
+                                                                        <option value="109" >Tripuri</option>
+                                                                        <option value="110" >Tulu</option>
+                                                                        <option value="111" >Urdu</option>
+                                                                </select>                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Country living in</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control chosen-select" name="country" id="country" data-validetta="required">
+                                                                        <option value="">
+                                                                            Select Country living in</option>
+                                                                        <option value="1" >Andorra</option>
+                                                                        <option value="2" selected>United Arab Emirates</option>
+                                                                        <option value="3" >Afghanistan</option>
+                                                                        <option value="4" >Antigua And Barbuda</option>
+                                                                        <option value="5" >Albania</option>
+                                                                        <option value="6" >Armenia</option>
+                                                                        <option value="7" >Angola</option>
+                                                                        <option value="8" >Antarctica</option>
+                                                                        <option value="9" >Argentina</option>
+                                                                        <option value="10" >American Samoa</option>
+                                                                        <option value="11" >Austria</option>
+                                                                        <option value="12" >Australia</option>
+                                                                        <option value="13" >Aruba</option>
+                                                                        <option value="14" >Aland Islands</option>
+                                                                        <option value="15" >Azerbaijan</option>
+                                                                        <option value="16" >Bosnia And Herzegovina</option>
+                                                                        <option value="17" >Barbados</option>
+                                                                        <option value="18" >Bangladesh</option>
+                                                                        <option value="19" >Belgium</option>
+                                                                        <option value="20" >Burkina Faso</option>
+                                                                        <option value="21" >Bulgaria</option>
+                                                                        <option value="22" >Bahrain</option>
+                                                                        <option value="23" >Burundi</option>
+                                                                        <option value="24" >Benin</option>
+                                                                        <option value="25" >Bermuda</option>
+                                                                        <option value="26" >Brunei</option>
+                                                                        <option value="27" >Bolivia</option>
+                                                                        <option value="28" >Bonaire, Saint Eustatius And Saba </option>
+                                                                        <option value="29" >Brazil</option>
+                                                                        <option value="30" >Bahamas</option>
+                                                                        <option value="31" >Bhutan</option>
+                                                                        <option value="32" >Bouvet Island</option>
+                                                                        <option value="33" >Botswana</option>
+                                                                        <option value="34" >Belarus</option>
+                                                                        <option value="35" >Belize</option>
+                                                                        <option value="36" >Canada</option>
+                                                                        <option value="37" >Democratic Republic Of The Congo</option>
+                                                                        <option value="38" >Central African Republic</option>
+                                                                        <option value="39" >Republic Of The Congo</option>
+                                                                        <option value="40" >Switzerland</option>
+                                                                        <option value="41" >Ivory Coast</option>
+                                                                        <option value="42" >Chile</option>
+                                                                        <option value="43" >Cameroon</option>
+                                                                        <option value="44" >China</option>
+                                                                        <option value="45" >Colombia</option>
+                                                                        <option value="46" >Costa Rica</option>
+                                                                        <option value="47" >Cuba</option>
+                                                                        <option value="48" >Cape Verde</option>
+                                                                        <option value="49" >Cyprus</option>
+                                                                        <option value="50" >Czech Republic</option>
+                                                                        <option value="51" >Germany</option>
+                                                                        <option value="52" >Djibouti</option>
+                                                                        <option value="53" >Denmark</option>
+                                                                        <option value="54" >Dominica</option>
+                                                                        <option value="55" >Dominican Republic</option>
+                                                                        <option value="56" >Algeria</option>
+                                                                        <option value="57" >Ecuador</option>
+                                                                        <option value="58" >Estonia</option>
+                                                                        <option value="59" >Egypt</option>
+                                                                        <option value="60" >Western Sahara</option>
+                                                                        <option value="61" >Eritrea</option>
+                                                                        <option value="62" >Spain</option>
+                                                                        <option value="63" >Ethiopia</option>
+                                                                        <option value="64" >Finland</option>
+                                                                        <option value="65" >Fiji</option>
+                                                                        <option value="66" >Micronesia</option>
+                                                                        <option value="67" >Faroe Islands</option>
+                                                                        <option value="68" >France</option>
+                                                                        <option value="69" >Gabon</option>
+                                                                        <option value="70" >United Kingdom</option>
+                                                                        <option value="71" >Grenada</option>
+                                                                        <option value="72" >Georgia</option>
+                                                                        <option value="73" >French Guiana</option>
+                                                                        <option value="74" >Guernsey</option>
+                                                                        <option value="75" >Ghana</option>
+                                                                        <option value="76" >Greenland</option>
+                                                                        <option value="77" >Gambia</option>
+                                                                        <option value="78" >Guinea</option>
+                                                                        <option value="79" >Guadeloupe</option>
+                                                                        <option value="80" >Equatorial Guinea</option>
+                                                                        <option value="81" >Greece</option>
+                                                                        <option value="82" >Guatemala</option>
+                                                                        <option value="83" >Guam</option>
+                                                                        <option value="84" >Guinea-Bissau</option>
+                                                                        <option value="85" >Guyana</option>
+                                                                        <option value="86" >Hong Kong</option>
+                                                                        <option value="87" >Honduras</option>
+                                                                        <option value="88" >Croatia</option>
+                                                                        <option value="89" >Haiti</option>
+                                                                        <option value="90" >Hungary</option>
+                                                                        <option value="91" >Indonesia</option>
+                                                                        <option value="92" >Ireland</option>
+                                                                        <option value="93" >Israel</option>
+                                                                        <option value="94" >Isle Of Man</option>
+                                                                        <option value="95" >India</option>
+                                                                        <option value="96" >British Indian Ocean Territory</option>
+                                                                        <option value="97" >Iraq</option>
+                                                                        <option value="98" >Iran</option>
+                                                                        <option value="99" >Iceland</option>
+                                                                        <option value="100" >Italy</option>
+                                                                        <option value="101" >Jersey</option>
+                                                                        <option value="102" >Jamaica</option>
+                                                                        <option value="103" >Jordan</option>
+                                                                        <option value="104" >Japan</option>
+                                                                        <option value="105" >Kenya</option>
+                                                                        <option value="106" >Kyrgyzstan</option>
+                                                                        <option value="107" >Cambodia</option>
+                                                                        <option value="108" >Kiribati</option>
+                                                                        <option value="109" >Comoros</option>
+                                                                        <option value="110" >Saint Kitts And Nevis</option>
+                                                                        <option value="111" >North Korea</option>
+                                                                        <option value="112" >South Korea</option>
+                                                                        <option value="113" >Kuwait</option>
+                                                                        <option value="114" >Kazakhstan</option>
+                                                                        <option value="115" >Laos</option>
+                                                                        <option value="116" >Lebanon</option>
+                                                                        <option value="117" >Saint Lucia</option>
+                                                                        <option value="118" >Liechtenstein</option>
+                                                                        <option value="119" >Sri Lanka</option>
+                                                                        <option value="120" >Liberia</option>
+                                                                        <option value="121" >Lesotho</option>
+                                                                        <option value="122" >Lithuania</option>
+                                                                        <option value="123" >Luxembourg</option>
+                                                                        <option value="124" >Latvia</option>
+                                                                        <option value="125" >Libya</option>
+                                                                        <option value="126" >Morocco</option>
+                                                                        <option value="127" >Monaco</option>
+                                                                        <option value="128" >Moldova</option>
+                                                                        <option value="129" >Montenegro</option>
+                                                                        <option value="130" >Madagascar</option>
+                                                                        <option value="131" >Marshall Islands</option>
+                                                                        <option value="132" >Macedonia</option>
+                                                                        <option value="133" >Mali</option>
+                                                                        <option value="134" >Myanmar</option>
+                                                                        <option value="135" >Mongolia</option>
+                                                                        <option value="136" >Macao</option>
+                                                                        <option value="137" >Northern Mariana Islands</option>
+                                                                        <option value="138" >Martinique</option>
+                                                                        <option value="139" >Mauritania</option>
+                                                                        <option value="140" >Montserrat</option>
+                                                                        <option value="141" >Mauritius</option>
+                                                                        <option value="142" >Maldives</option>
+                                                                        <option value="143" >Malawi</option>
+                                                                        <option value="144" >Mexico</option>
+                                                                        <option value="145" >Malaysia</option>
+                                                                        <option value="146" >Mozambique</option>
+                                                                        <option value="147" >Namibia</option>
+                                                                        <option value="148" >New Caledonia</option>
+                                                                        <option value="149" >Niger</option>
+                                                                        <option value="150" >Nigeria</option>
+                                                                        <option value="151" >Nicaragua</option>
+                                                                        <option value="152" >Netherlands</option>
+                                                                        <option value="153" >Norway</option>
+                                                                        <option value="154" >Nepal</option>
+                                                                        <option value="155" >Nauru</option>
+                                                                        <option value="156" >New Zealand</option>
+                                                                        <option value="157" >Oman</option>
+                                                                        <option value="158" >Panama</option>
+                                                                        <option value="159" >Peru</option>
+                                                                        <option value="160" >French Polynesia</option>
+                                                                        <option value="161" >Papua New Guinea</option>
+                                                                        <option value="162" >Philippines</option>
+                                                                        <option value="163" >Pakistan</option>
+                                                                        <option value="164" >Poland</option>
+                                                                        <option value="165" >Saint Pierre And Miquelon</option>
+                                                                        <option value="166" >Puerto Rico</option>
+                                                                        <option value="167" >Palestinian Territory</option>
+                                                                        <option value="168" >Portugal</option>
+                                                                        <option value="169" >Palau</option>
+                                                                        <option value="170" >Paraguay</option>
+                                                                        <option value="171" >Qatar</option>
+                                                                        <option value="172" >Reunion</option>
+                                                                        <option value="173" >Romania</option>
+                                                                        <option value="174" >Serbia</option>
+                                                                        <option value="175" >Russia</option>
+                                                                        <option value="176" >Rwanda</option>
+                                                                        <option value="177" >Saudi Arabia</option>
+                                                                        <option value="178" >Solomon Islands</option>
+                                                                        <option value="179" >Seychelles</option>
+                                                                        <option value="180" >Sudan</option>
+                                                                        <option value="181" >Sweden</option>
+                                                                        <option value="182" >Singapore</option>
+                                                                        <option value="183" >Saint Helena</option>
+                                                                        <option value="184" >Slovenia</option>
+                                                                        <option value="185" >Svalbard And Jan Mayen</option>
+                                                                        <option value="186" >Slovakia</option>
+                                                                        <option value="187" >Sierra Leone</option>
+                                                                        <option value="188" >San Marino</option>
+                                                                        <option value="189" >Senegal</option>
+                                                                        <option value="190" >Somalia</option>
+                                                                        <option value="191" >Suriname</option>
+                                                                        <option value="192" >South Sudan</option>
+                                                                        <option value="193" >Sao Tome And Principe</option>
+                                                                        <option value="194" >El Salvador</option>
+                                                                        <option value="195" >Syria</option>
+                                                                        <option value="196" >Swaziland</option>
+                                                                        <option value="197" >Chad</option>
+                                                                        <option value="198" >French Southern Territories</option>
+                                                                        <option value="199" >Togo</option>
+                                                                        <option value="200" >Thailand</option>
+                                                                        <option value="201" >Tajikistan</option>
+                                                                        <option value="202" >Tokelau</option>
+                                                                        <option value="203" >East Timor</option>
+                                                                        <option value="204" >Turkmenistan</option>
+                                                                        <option value="205" >Tunisia</option>
+                                                                        <option value="206" >Tonga</option>
+                                                                        <option value="207" >Turkey</option>
+                                                                        <option value="208" >Trinidad And Tobago</option>
+                                                                        <option value="209" >Tuvalu</option>
+                                                                        <option value="210" >Taiwan</option>
+                                                                        <option value="211" >Tanzania</option>
+                                                                        <option value="212" >Ukraine</option>
+                                                                        <option value="213" >Uganda</option>
+                                                                        <option value="214" >United States Minor Outlying Islands</option>
+                                                                        <option value="215" >United States</option>
+                                                                        <option value="216" >Uruguay</option>
+                                                                        <option value="217" >Uzbekistan</option>
+                                                                        <option value="218" >Saint Vincent And The Grenadines</option>
+                                                                        <option value="219" >Venezuela</option>
+                                                                        <option value="220" >U.S. Virgin Islands</option>
+                                                                        <option value="221" >Vietnam</option>
+                                                                        <option value="222" >Vanuatu</option>
+                                                                        <option value="223" >Wallis And Futuna</option>
+                                                                        <option value="224" >Samoa</option>
+                                                                        <option value="225" >Kosovo</option>
+                                                                        <option value="226" >Yemen</option>
+                                                                        <option value="227" >Mayotte</option>
+                                                                        <option value="228" >South Africa</option>
+                                                                        <option value="229" >Zambia</option>
+                                                                        <option value="230" >Zimbabwe</option>
+                                                                        <option value="235" >Country111</option>
+                                                                        <option value="236" >Country111</option> 
+                                                                </select>                                                                    
+                                                                    <div id="status1"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group" id="dis_child">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>State</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control" name="no_child" onchange="check_child(this.value)">
+                                                                        <option value="">Select Your State</option>
+                                                                        <option value="Zero">None</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group" id="dis_child">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>City</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select class="gt-form-control" name="no_child" onchange="check_child(this.value)">
+                                                                        <option value="">Select Your City</option>
+                                                                        <option value="Zero">None</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                                                        
+                                                        
+                                                        
+                                                        <div class="form-group text-center">
+                                                            <input type="submit" value="Submit"  class="btn gt-btn-green btn-lg">
+                                                			
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container gt-margin-top-10">
+        </div>
+
+        <!--- FOOTER --->
+        <!--- FOOTER END--->
+
+        <!--
+<script>
+ document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("return false")
+</script>
+-->
+
+        <!---- ONLINE CHAT WIDGET--->
+        <script type="text/javascript">
+            var auto_refresh = setInterval(
+                function() {
+                    $('#count').load('parts/online').fadeIn("slow");
+                }, 15000); // refresh every 10 second
+        </script>
+        <script src="/static/matrimony/js/jquery.min.js"></script>
+        <small class="pull-right">
+  </small>
+        <!---- ONLINE CHAT WIDGET END--->
+
+
+        <a href="{% url 'feedback' %}" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+ <img src="/static/matrimony/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+</a>
+
+
+        <script>
+            $(function() {
+                $('#thanksMessage').on('show.bs.modal', function() {
+                    var myModal = $(this);
+                    clearTimeout(myModal.data('hideInterval'));
+                    myModal.data('hideInterval', setTimeout(function() {
+                        myModal.modal('hide');
+                    }, 2000));
+                });
+            });
+        </script>
+        <!--- FEEDBACK MODAL END --->
+
+        <!--- GOOGLE ANALYTICS CODE --->
+        <script>
+            var id = 'UA-demo1';
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', id, 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!--- GOOGLE ANALYTICS CODE END --->
+
+
+    </div>
+    <!-- Jquery --->
+    <script src="/static/matrimony/js/jquery.min.js"></script>
+    <!--- Jquery END --->
+
+    <!--- BOOTSTRAP AND GREEN JS--->
+    <script src="/static/matrimony/js/bootstrap.js"></script>
+    <script src="/static/matrimony/js/jquery.validate.js"></script>
+    <script src="/static/matrimony/js/green.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#contact-btn").click(function() {
+                $("#contactform").validate();
+            });
+        });
+    </script>
+    <!--- BOOTSTRAP AND GREEN JS END--->
+    <!--- LOADER JS--->
+    <script>
+        $(document).ready(function() {
+            $('#body').show();
+            $('.preloader-wrapper').hide();
+        });
+    </script>
+    <!--- LOADER JS END --->
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        dis_thumbnail();
+    });
+
+    function dis_thumbnail() {
+        var dataString = '';
+        jQuery.ajax({
+            url: "./web-services/display_thumbnail",
+            type: "POST",
+            data: dataString,
+            cache: false,
+            success: function(response) {
+                $("#dis_thumbnail").html('');
+                $("#dis_thumbnail").append(response);
+            },
+        });
+    }
+</script>
+
+{% endblock %}

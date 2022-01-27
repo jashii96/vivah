@@ -1,0 +1,897 @@
+{% extends './base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row gt-margin-top-10">
+        <div class="col-xxl-11">
+            <div class="row">
+                <div class="col-xxl-2">
+                    <img src="/static/matrimony/img/register-img.png" class="img-responsive">
+                </div>
+                <div class="col-xxl-14">
+                    <h3 class="gt-text-green">
+                        Completing this page will take you closer to your perfect match.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gtRegister col-xxl-11">
+        
+        <div class="row">
+            <h3 class="gt-text-green gt-border-bottom-smoke-white gt-padding-bottom-10">
+                <i class="fa fa-user gt-margin-right-10"></i>Personal Information
+            </h3>
+            <article>
+                <p>
+                    You have many matching profiles based on your details. Completing this page will take you closer to your perfect match.
+                </p>
+            </article>
+            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b class="gt-text-Grey">Mandatory fields</b>
+        </div>
+        <form id="register_form" name="register_form" method="post" action="" class="">
+            {% csrf_token %}
+            <h4 class="gtRegTitle gt-margin-top-30">
+                <i class="fa fa-user gt-margin-right-10"></i>Some Personal Information
+            </h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Mobile No.</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Gender</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Date Of Birth</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Marital status</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="dis_child">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>No. of children</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="dis_child_status">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                          <b>Children Living Status</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Religion</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Caste</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Mother Tongue</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                                            
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Country living in</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Residing state</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                        <div id="status2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Residing city</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <h4 class="gt-margin-top-30 gt-text-Grey font-20 gt-margin-bottom-30"><i class="fa fa-male gt-margin-right-10"></i>Physical Attributes </h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Height</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Weight</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Body type</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Complexion</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Physical status</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="gt-margin-top-30 gt-text-Grey font-20 gt-margin-bottom-30"><i class="fa fa-book gt-margin-right-10"></i>Education & Occupation</h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Highest Education</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                                
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                           <b>Additional Degree</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                                
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                           <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Occupation</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                                
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Employed in </b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Annual Income</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                            
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="gt-margin-top-30 gt-text-Grey font-20 gt-margin-bottom-30"><i class="fa fa-glass gt-margin-right-10"></i>Habits</h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Diet</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Smoking</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Drinking</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                    </div>
+                </div>
+            </div>
+            <h4 class="gt-margin-top-30 gt-text-Grey font-20 gt-margin-bottom-10"><i class="fa fa-moon-o gt-margin-right-10"></i>Horoscope Details</h4>
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Have Dosh?</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        
+                        <div class="row gt-margin-top-15" id="dosh_display">
+                            <div>
+                                <label for="Manglik" class="gt-inline-block col-xs-4">
+                                    <span class="pull-left gt-margin-right-10">
+                                        <input type="checkbox" value="Manglik" id="Manglik" class="gt-margin-top-0" name="manglik[]">
+                                    </span>
+                                    <span class="pull-left font-14 gt-font-weight-500">Manglik</span>
+                                </label>
+                                <label for="Sarpa-dosh" class="gt-inline-block col-xs-5">
+                                    <span class="pull-left gt-margin-right-10">
+                                        <input type="checkbox" value="Sarpa-dosh" id="Sarpa-dosh" class="gt-margin-top-0" name="manglik[]">
+                                    </span>
+                                    <span class="pull-left font-14 gt-font-weight-500">Sarpa dosh</span>
+                                </label>
+                                <label for="Kala-sarpa-dosh" class="gt-inline-block col-xs-5">
+                                    <span class="pull-left gt-margin-right-10">
+                                        <input type="checkbox" value="Kala-sarpa-dosh" id="Kala-sarpa-dosh" class="gt-margin-top-0" name="manglik[]">
+                                    </span>
+                                    <span class="pull-left font-14 gt-font-weight-500">Kala sarpa dosh</span>
+                                </label>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div>
+                                <label for="Rahu-dosh" class="gt-inline-block col-xs-4">
+                                    <span class="pull-left gt-margin-right-10">
+                                        <input type="checkbox" value="Rahu-dosh" id="Rahu-dosh" class="gt-margin-top-0" name="manglik[]">
+                                    </span>
+                                    <span class="pull-left font-14 gt-font-weight-500">Rahu dosh</span>
+                                </label>
+                                <label for="Kethu-dosh" class="gt-inline-block col-xs-5">
+                                    <span class="pull-left gt-margin-right-10">
+                                        <input type="checkbox" value="Kethu-dosh" id="Kethu-dosh" class="gt-margin-top-0" name="manglik[]">
+                                    </span>
+                                    <span class="pull-left font-14 gt-font-weight-500">Kethu dosh</span>
+                                </label>
+                                <label for="Kalathra-dosh" class="gt-inline-block col-xs-5">
+                                    <span class="pull-left gt-margin-right-10">
+                                        <input type="checkbox" value="Kalathra-dosh" id="Kalathra-dosh" class="gt-margin-top-0" name="manglik[]">
+                                    </span>
+                                    <span class="pull-left font-14 gt-font-weight-500">Kalathra dosh</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Star</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-7 col-xs-16 col-lg-7">
+                        <select class="gt-form-control" id="star" name="star">
+                            <option value="">
+                                Select Your Star 
+                            </option>
+                            <option value="Ashvini">Ashvini</option>
+                            <option value="Bharani">Bharani</option>
+                            <option value="Krittika">Krittika</option>
+                            <option value="Rohini">Rohini</option>
+                            <option value="Mrigashirsha">Mrigashirsha</option>
+                            <option value="Ardra">Ardra</option>
+                            <option value="Punarvasu">Punarvasu</option>
+                            <option value="Pushya">Pushya</option>
+                            <option value="Ashlesha">Ashlesha</option>
+                            <option value="Magha">Magha</option>
+                            <option value="Purva Phalguni">Purva Phalguni</option>
+                            <option value="Uttara Phalguni">Uttara Phalguni</option>
+                            <option value="Hasta">Hasta</option>
+                            <option value="Chitra">Chitra</option>
+                            <option value="Swati">Swati</option>
+                            <option value="Vishakha">Vishakha</option>
+                            <option value="Anuradha">Anuradha</option>
+                            <option value="Jyeshtha">Jyeshtha</option>
+                            <option value="Mula">Mula</option>
+                            <option value="Purva Ashadha">Purva Ashadha</option>
+                            <option value="Uttara Ashadha">Uttara Ashadha</option>
+                            <option value="Shravana">Shravana</option>
+                            <option value="Dhanishtha">Dhanishtha</option>
+                            <option value="Shatabhisha">Shatabhisha</option>
+                            <option value="Purva Bhadrapada">Purva Bhadrapada</option>
+                            <option value="Uttara Bhadrapada">Uttara Bhadrapada</option>
+                            <option value="Revati">Revati</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Raasi/moon sign</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-7 col-xs-16 col-lg-7">
+                        <select class="gt-form-control" name="raasi">
+                            <option value="">
+                                Select  Your Related Raasi/moon sign
+                            </option>
+                            <option value="Does not matter">Does not matter</option>
+                            <option value="Mesh (Aries)">Mesh (Aries)</option>
+                            <option value="Vrishabh (Taurus)">Vrishabh (Taurus)</option>
+                            <option value="Mithun (Gemini)">Mithun (Gemini)</option>
+                            <option value="Karka (Cancer)">Karka (Cancer)</option>
+                            <option value="Simha (Leo)">Simha (Leo)</option>
+                            <option value="Kanya (Virgo)">Kanya (Virgo)</option>
+                            <option value="Tula (Libra)">Tula (Libra)</option>
+                            <option value="Vrischika (Scorpio)">Vrischika (Scorpio)</option>
+                            <option value="Dhanu (Sagittarious)">Dhanu (Sagittarious)</option>
+                            <option value="Makar (Capricorn)">Makar (Capricorn)</option>
+                            <option value="Kumbha (Aquarious)">Kumbha (Aquarious)</option>
+                            <option value="Meen (Pisces)">Meen (Pisces)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Birth Time</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-7 col-xs-16 col-lg-7">
+                        <select name="birth_time" class="gt-form-control">
+                            	
+                </select>                                                                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Birth Place</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-7 col-xs-16 col-lg-7">
+                        <input type="text" name="birthplace" class="gt-form-control valid" placeholder="Enter Your Birth Place">
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="gt-margin-top-30 gt-text-Grey font-20 gt-margin-bottom-30"><i class="fa fa-users gt-margin-right-10"></i>Family Profile</h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Family status</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        <input type="radio" name="family_status" value="Middle class" id="Middle-class" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Middle-class">Middle class</label>
+
+                        <input type="radio" name="family_status" value="Upper middle class" id="Upper-middle-class" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Upper-middle-class">Upper middle class</label>
+
+                        <input type="radio" name="family_status" value="Rich" id="Rich" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Rich">Rich</label>
+
+                        <input type="radio" name="family_status" value="Affluent" id="Affluent" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Affluent">Affluent</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Family type</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        <input type="radio" name="family_type" value="Joint" id="Joint" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Joint">Joint</label>
+
+                        <input type="radio" name="family_type" value="Nuclear" id="Nuclear" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Nuclear">Nuclear</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Family value</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                        <input type="radio" name="family_values" value="Orthodox" id="Orthodox" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Orthodox">Orthodox</label>
+
+                        <input type="radio" name="family_values" value="Traditional" id="Traditional" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Traditional">Traditional</label>
+                        <div class="clearfix visible-xs visible-sm"></div>
+                        <input type="radio" name="family_values" value="Moderate" id="Moderate" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Moderate">Moderate</label>
+
+                        <input type="radio" name="family_values" value="Liberal" id="Liberal" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Liberal">Liberal</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Father Occupation</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        <input type="text" name="father_occupation" value="" class="gt-form-control valid" placeholder="Enter Father Occupation">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Mother Occupation</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+
+                        <input type="text" name="mother_occupation" value="" class="gt-form-control valid" placeholder="Enter Mother Occupation">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>No. of Brothers </b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        <select name="no_of_brothers" class="gt-form-control" onchange="check_brother_sister('brother', this.value)">
+							<option value="No Brother">No Brother</option>
+                            <option value="1 Brother">1 Brother</option>
+                            <option value="2 Brothers">2 Brothers</option>
+                            <option value="3 Brothers">3 Brothers</option>
+                            <option value="4 Brothers">4 Brothers</option>
+                            <option value="4 + Brothers">4 + Brothers</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="brothers_married_status">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Married Brothers </b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        <select name="no_of_marri_brothers" class="gt-form-control">
+                            <option value="No married brother">No married brother</option>
+                            <option value="1 married brother">1 married brother</option>
+                            <option value="2 married brothers">2 married brothers</option>
+                            <option value="3 married brothers">3 married brothers</option>
+                            <option value="4 married brothers">4 married brothers</option>
+                            <option value="4 + married brothers">4+ married brothers</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>No. of Sisters </b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        <select name="no_of_sisters" class="gt-form-control" onchange="check_brother_sister('sister', this.value)">
+                            <option value="No Sister">No Sister</option>
+                            <option value="1 Sister">1 Sister</option>
+                            <option value="2 Sisters">2 Sisters</option>
+                            <option value="3 Sisters">3 Sisters</option>
+                            <option value="4 Sisters">4 Sisters</option>
+                            <option value="4 + Sisters">4 + Sisters</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="sisters_married_status">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b>Married Sisters </b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        <select name="no_of_marri_sister" class="gt-form-control">
+							<option value="No married sister">No married sister</option>
+                            <option value="1 married sister">1 married sister</option>
+                            <option value="2 married sisters">2 married sisters</option>
+                            <option value="3 married sisters">3 married sisters</option>
+                            <option value="4 married sisters">4 married sisters</option>
+                            <option value="4+ married sisters">4+ married sisters</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="gt-margin-top-30 gt-text-Grey font-20 gt-margin-bottom-10"><i class="fa fa-pencil gt-margin-right-10"></i>Something About You </h4>
+            <article class="gt-margin-bottom-30">
+                <p>
+                    Write some of about you.for example which kind of person you are ,about your <b>Personality</b>,<b>Hobbies</b>,<b>About your family</b> ect.
+                </p>
+            </article>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xxl-5 col-xs-16 col-lg-5">
+                        <label class="gt-text-light-Grey">
+                            <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Something About You</b>
+                        </label>
+                    </div>
+                    <div class="col-xxl-11 col-xs-16 col-lg-11">
+                        <textarea class="gt-form-control" rows="5" cols="5" name="profile_text" data-validetta="required,minLength[50]"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <input type="checkbox" name="chk_terms" checked> <span class="gt-margin-left-10">I read all <a href="cms?cms_id=6" target="_blank">Privacy Policy</a> and agreed with <a href="cms?cms_id=7" target="_blank">Terms & Condition</a>.</span>
+            </div>
+            <div class="form-group text-center col-xxl-offset-3">
+                <input type="submit" name="submit" id="submit" value="Continue" class="btn gt-btn-green gt-btn-xxl">
+            </div>
+        </form>
+    </div>
+    <div class="col-3">
+        <div class="gtRegisterBucket text-center gt-margin-top-30">
+            <i class="fa fa-mobile index-color-1"></i>
+            <h4 class="index-color-1">Mobile Verified Profiles</h4>
+        </div>
+        <div class="gtRegisterBucket text-center">
+            <i class="fa fa-users index-color-2"></i>
+            <h4 class="index-color-2">Many Happy Couples</h4>
+        </div>
+        <div class="gtRegisterBucket text-center">
+            <i class="fa fa-check index-color-3"></i>
+            <h4 class="index-color-3">Most Trusted Matrimony</h4>
+        </div>
+    </div>
+</div>
+
+<!--Javascript Code-->
+
+<script type="text/javascript">
+    $(document).ready(function(e) {
+
+        $('#dis_child').hide();
+        $('#dosh_display').hide();
+        $('#dis_child_status').hide();
+        $('#brothers_married_status').hide();
+        $('#sisters_married_status').hide();
+        $("#status1").html('<img src="img/9.gif" align="absmiddle">&nbsp;Loading Please wait...');
+        var id = '2';
+        var dataString = 'id=' + id;
+        $.ajax({
+            type: "post",
+            url: "ajax_country_state",
+            data: dataString,
+            cache: false,
+            success: function(html) {
+                $("#state").html(html);
+                $("#status1").html('');
+                $("#state").trigger("chosen:updated");
+            }
+        });
+
+    });
+
+    function check_brother_sister(child, status) {
+        if (child == 'brother' && status != "" && status != "No Brothers") {
+            $('#brothers_married_status').show();
+        }
+        if (child == 'sister' && status != "" && status != "No Sisters") {
+            $('#sisters_married_status').show();
+        }
+    }
+    /*function check_brother_sister(child, status) {
+        if (child == 'brother' && status != "No Brother" && status !=''){
+            $('#brothers_married_status').show();
+        }else{
+			$('#brothers_married_status').hide();
+		}
+        if (child == 'sister' && status != "No Sister" && status !=''){
+            $('#sisters_married_status').show();
+        }else{
+			$('#sisters_married_status').hide();
+		}
+    }*/
+    function check_ststus(status) {
+        if (status == 'never-married') {
+            $('#dis_child').hide();
+            $('#dis_child_status').hide();
+        }
+        if (status == 'widower') {
+            $('#dis_child').show();
+        }
+        if (status == 'widow') {
+            $('#dis_child').show();
+        }
+        if (status == 'divorced') {
+            $('#dis_child').show();
+        }
+
+        if (status == 'awaiting-divorce') {
+            $('#dis_child').show();
+        }
+    }
+
+    function check_dosh(status) {
+        if (status == 'No') {
+            $('#dosh_display').hide();
+        }
+        if (status == 'Yes') {
+            $('#dosh_display').show();
+        }
+        if (status == '0') {
+            $('#dosh_display').hide();
+        }
+    }
+
+    function check_child(val) {
+        if (val != '0' && val != '') {
+            $('#dis_child_status').show();
+        } else {
+            $('#dis_child_status').hide();
+        }
+    }
+    $(document).ready(function() {
+        $("#bodytype-alert").hide();
+        $("#complexion-alert").hide();
+        $("#physicalStatus-alert").hide();
+        $("#employedin-alert").hide();
+        $("#smoking-alert").hide();
+        $("#diet-alert").hide();
+        $("#drinking-alert").hide();
+        $("#family_status-alert").hide();
+        $("#family_type-alert").hide();
+        $("#family_values-alert").hide();
+        $("#submit").click(function() {
+            if ($("input[name=bodytype]:checked").length == 0) {
+                $("#bodytype-alert").show();
+            } else {
+                $("#bodytype-alert").hide();
+            }
+            if ($("input[name=complexion]:checked").length == 0) {
+                $("#complexion-alert").show();
+            } else {
+                $("#complexion-alert").hide();
+            }
+            if ($("input[name=physicalStatus]:checked").length == 0) {
+                $("#physicalStatus-alert").show();
+            } else {
+                $("#physicalStatus-alert").hide();
+            }
+            if ($("input[name=employedin]:checked").length == 0) {
+                $("#employedin-alert").show();
+            } else {
+                $("#employedin-alert").hide();
+            }
+            if ($("input[name=diet]:checked").length == 0) {
+                $("#diet-alert").show();
+            } else {
+                $("#diet-alert").hide();
+            }
+            if ($("input[name=smoking]:checked").length == 0) {
+                $("#smoking-alert").show();
+            } else {
+                $("#smoking-alert").hide();
+            }
+            if ($("input[name=drinking]:checked").length == 0) {
+                $("#drinking-alert").show();
+            } else {
+                $("#drinking-alert").hide();
+            }
+            if ($("input[name=family_status]:checked").length == 0) {
+                $("#family_status-alert").show();
+            } else {
+                $("#family_status-alert").hide();
+            }
+            if ($("input[name=family_type]:checked").length == 0) {
+                $("#family_type-alert").show();
+            } else {
+                $("#family_type-alert").hide();
+            }
+            if ($("input[name=family_values]:checked").length == 0) {
+                $("#family_values-alert").show();
+            } else {
+                $("#family_values-alert").hide();
+            }
+        });
+    });
+</script>
+<!--<script>
+		$('.valid').on('keypress', function (event) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+       event.preventDefault(alert('Spacial Character & Numbers Not Allowed.'));
+       return false;	  
+	}	
+});
+</script> -->
+<!--- CHOSEN JS --->
+<script src="/static/js/chosen.jquery.js" type="text/javascript"></script>
+<script src="/static/js/prism.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {
+            allow_single_deselect: true
+        },
+        '.chosen-select-no-single': {
+            disable_search_threshold: 10
+        },
+        '.chosen-select-no-results': {
+            no_results_text: 'Oops, nothing found!'
+        },
+        '.chosen-select-width': {
+            width: "100%"
+        }
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>
+<!--- CHOSEN JS END--->
+{% endblock %}

@@ -1,0 +1,370 @@
+{% extends './base.html' %}
+{% block title%}
+Feedback
+{% endblock%}
+{% block content %}
+                <!-- To decrese notification count when click on notification-->
+                <script>
+                    function notification(noti_id) {
+                        $.ajax({
+                            url: "web-services/notification",
+                            type: "POST",
+                            data: "noti_id=" + noti_id,
+                            cache: false,
+                            success: function(response) {
+                                location.reload();
+
+                            }
+                        });
+                        return true;
+                    }
+                </script>
+                <!-- HEADER END-->
+                <div class="container">
+
+                    <div class="row gt-margin-top-20">
+
+                        <div class="col-xxl-8 col-xxl-offset-4  col-xl-8 col-xl-offset-4">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <div class="gt-panel">
+                                        <div class="gt-panel-border-green">
+                                            <h2 class="text-center">Family Details</h2>
+                                            <p class="text-center">Give your Family Details.</p>
+                                            
+                                        </div>
+                                        <div class="gt-panel-body">
+                                            <div class="row">
+                                                <div class="col-xxl-16">
+                                                    <form action="" method="post">
+                                                        {% csrf_token %}
+
+
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Family status</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                                                                    <input type="radio" name="family_status" value="Middle class" id="Middle-class" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Middle-class">Middle class</label>
+                                            
+                                                                    <input type="radio" name="family_status" value="Upper middle class" id="Upper-middle-class" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Upper-middle-class">Upper middle class</label>
+                                            
+                                                                    <input type="radio" name="family_status" value="Rich" id="Rich" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Rich">Rich</label>
+                                            
+                                                                    <input type="radio" name="family_status" value="Affluent" id="Affluent" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Affluent">Affluent</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Family type</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                                                                    <input type="radio" name="family_type" value="Joint" id="Joint" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Joint">Joint</label>
+                                            
+                                                                    <input type="radio" name="family_type" value="Nuclear" id="Nuclear" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Nuclear">Nuclear</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b class="text-danger gt-margin-right-5 gtRegMandatory">*</b><b>Family value</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                                                                    <input type="radio" name="family_values" value="Orthodox" id="Orthodox" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Orthodox">Orthodox</label>
+                                            
+                                                                    <input type="radio" name="family_values" value="Traditional" id="Traditional" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Traditional">Traditional</label>
+                                                                    <div class="clearfix visible-xs visible-sm"></div>
+                                                                    <input type="radio" name="family_values" value="Moderate" id="Moderate" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Moderate">Moderate</label>
+                                            
+                                                                    <input type="radio" name="family_values" value="Liberal" id="Liberal" class="gt-margin-top-0 pull-left gt-padding-right-10" data-validetta="required">
+                                                                    <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Liberal">Liberal</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>Father Occupation</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <input type="text" name="father_occupation" value="" class="gt-form-control valid" placeholder="Enter Father Occupation">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>Mother Occupation</b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                            
+                                                                    <input type="text" name="mother_occupation" value="" class="gt-form-control valid" placeholder="Enter Mother Occupation">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>No. of Brothers </b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select name="no_of_brothers" class="gt-form-control" onchange="check_brother_sister('brother', this.value)">
+                                                                        <option value="No Brother">No Brother</option>
+                                                                        <option value="1 Brother">1 Brother</option>
+                                                                        <option value="2 Brothers">2 Brothers</option>
+                                                                        <option value="3 Brothers">3 Brothers</option>
+                                                                        <option value="4 Brothers">4 Brothers</option>
+                                                                        <option value="4 + Brothers">4 + Brothers</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="brothers_married_status">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>Married Brothers </b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select name="no_of_marri_brothers" class="gt-form-control">
+                                                                        <option value="No married brother">No married brother</option>
+                                                                        <option value="1 married brother">1 married brother</option>
+                                                                        <option value="2 married brothers">2 married brothers</option>
+                                                                        <option value="3 married brothers">3 married brothers</option>
+                                                                        <option value="4 married brothers">4 married brothers</option>
+                                                                        <option value="4 + married brothers">4+ married brothers</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>No. of Sisters </b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select name="no_of_sisters" class="gt-form-control" onchange="check_brother_sister('sister', this.value)">
+                                                                        <option value="No Sister">No Sister</option>
+                                                                        <option value="1 Sister">1 Sister</option>
+                                                                        <option value="2 Sisters">2 Sisters</option>
+                                                                        <option value="3 Sisters">3 Sisters</option>
+                                                                        <option value="4 Sisters">4 Sisters</option>
+                                                                        <option value="4 + Sisters">4 + Sisters</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" id="sisters_married_status">
+                                                            <div class="row">
+                                                                <div class="col-xxl-5 col-xs-16 col-lg-5">
+                                                                    <label class="gt-text-light-Grey">
+                                                                        <b>Married Sisters </b>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-xxl-11 col-xs-16 col-lg-11">
+                                                                    <select name="no_of_marri_sister" class="gt-form-control">
+                                                                        <option value="No married sister">No married sister</option>
+                                                                        <option value="1 married sister">1 married sister</option>
+                                                                        <option value="2 married sisters">2 married sisters</option>
+                                                                        <option value="3 married sisters">3 married sisters</option>
+                                                                        <option value="4 married sisters">4 married sisters</option>
+                                                                        <option value="4+ married sisters">4+ married sisters</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        
+                                                        <div class="form-group text-center">
+                                                            <input type="submit" value="Submit"  class="btn gt-btn-green btn-lg">
+                                                			
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container gt-margin-top-10">
+        </div>
+
+        <!--- FOOTER --->
+        <!--- FOOTER END--->
+
+        <!--
+<script>
+ document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("return false")
+</script>
+-->
+
+        <!---- ONLINE CHAT WIDGET--->
+        <script type="text/javascript">
+            var auto_refresh = setInterval(
+                function() {
+                    $('#count').load('parts/online').fadeIn("slow");
+                }, 15000); // refresh every 10 second
+        </script>
+        <script src="/static/matrimony/js/jquery.min.js"></script>
+        <small class="pull-right">
+  </small>
+        <!---- ONLINE CHAT WIDGET END--->
+
+
+        <a href="{% url 'feedback' %}" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+ <img src="/static/matrimony/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+</a>
+
+
+        <script>
+            $(function() {
+                $('#thanksMessage').on('show.bs.modal', function() {
+                    var myModal = $(this);
+                    clearTimeout(myModal.data('hideInterval'));
+                    myModal.data('hideInterval', setTimeout(function() {
+                        myModal.modal('hide');
+                    }, 2000));
+                });
+            });
+        </script>
+        <!--- FEEDBACK MODAL END --->
+
+        <!--- GOOGLE ANALYTICS CODE --->
+        <script>
+            var id = 'UA-demo1';
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', id, 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!--- GOOGLE ANALYTICS CODE END --->
+
+
+    </div>
+    <!-- Jquery --->
+    <script src="/static/matrimony/js/jquery.min.js"></script>
+    <!--- Jquery END --->
+
+    <!--- BOOTSTRAP AND GREEN JS--->
+    <script src="/static/matrimony/js/bootstrap.js"></script>
+    <script src="/static/matrimony/js/jquery.validate.js"></script>
+    <script src="/static/matrimony/js/green.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#contact-btn").click(function() {
+                $("#contactform").validate();
+            });
+        });
+    </script>
+    <!--- BOOTSTRAP AND GREEN JS END--->
+    <!--- LOADER JS--->
+    <script>
+        $(document).ready(function() {
+            $('#body').show();
+            $('.preloader-wrapper').hide();
+        });
+    </script>
+    <!--- LOADER JS END --->
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        dis_thumbnail();
+    });
+
+    function dis_thumbnail() {
+        var dataString = '';
+        jQuery.ajax({
+            url: "./web-services/display_thumbnail",
+            type: "POST",
+            data: dataString,
+            cache: false,
+            success: function(response) {
+                $("#dis_thumbnail").html('');
+                $("#dis_thumbnail").append(response);
+            },
+        });
+    }
+</script>
+
+{% endblock %}

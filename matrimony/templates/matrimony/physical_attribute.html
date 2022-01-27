@@ -1,0 +1,420 @@
+{% extends './base.html' %}
+{% block title%}
+Physical Attributes
+{% endblock%}
+{% block content %}
+                <!-- To decrese notification count when click on notification-->
+                <script>
+                    function notification(noti_id) {
+                        $.ajax({
+                            url: "web-services/notification",
+                            type: "POST",
+                            data: "noti_id=" + noti_id,
+                            cache: false,
+                            success: function(response) {
+                                location.reload();
+
+                            }
+                        });
+                        return true;
+                    }
+                </script>
+                <!-- HEADER END-->
+                <div class="container">
+
+                    <div class="row gt-margin-top-20">
+
+                        <div class="col-xxl-8 col-xxl-offset-4  col-xl-8 col-xl-offset-4">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <div class="gt-panel">
+                                        <div class="gt-panel-border-green">
+                                            <h2 class="text-center">Physical Attributes</h2>
+                                            <p class="text-center">Update Your Physical Attributes Data.</p>
+                                            {% if error %}
+                                            <p class="text-center"><strong>{{error}}</strong></p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="gt-panel-body">
+                                            <div class="row">
+                                                <div class="col-xxl-16">
+                                                    <form action="" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="form-group">
+                                                            <label>Height</label>
+                                                            <select class="gt-form-control" name="height" data-validetta="required">
+                                                                <option value="">Select Height In ft</option>
+                                                                <option value="48">Below 4ft 6in - 137cm</option>
+                                                                <option value="54">4ft 6in - 137cm</option>
+                                                                <option value="55">4ft 7in - 139cm</option>
+                                                                <option value="56">4ft 8in - 142cm</option>
+                                                                <option value="57">4ft 9in - 144cm</option>
+                                                                <option value="58">4ft 10in - 147cm</option>
+                                                                <option value="59">4ft 11in - 149cm</option>
+                                                                <option value="60">5ft - 152cm</option>
+                                                                <option value="61">5ft 1in - 154cm</option>
+                                                                <option value="62">5ft 2in - 157cm</option>
+                                                                <option value="63">5ft 3in - 160cm</option>
+                                                                <option value="64">5ft 4in - 162cm</option>
+                                                                <option value="65">5ft 5in - 165cm</option>
+                                                                <option value="66">5ft 6in - 167cm</option>
+                                                                <option value="67">5ft 7in - 170cm</option>
+                                                                <option value="68">5ft 8in - 172cm</option>
+                                                                <option value="69">5ft 9in - 175cm</option>
+                                                                <option value="70">5ft 10in - 177cm</option>
+                                                                <option value="71">5ft 11in - 180cm</option>
+                                                                <option value="72">6ft - 182cm</option>
+                                                                <option value="73">6ft 1in - 185cm</option>
+                                                                <option value="74">6ft 2in - 187cm</option>
+                                                                <option value="75">6ft 3in - 190cm</option>
+                                                                <option value="76">6ft 4in - 193cm</option>
+                                                                <option value="77">6ft 5in - 195cm</option>
+                                                                <option value="78">6ft 6in - 198cm</option>
+                                                                <option value="79">6ft 7in - 200cm</option>
+                                                                <option value="80">6ft 8in - 203cm</option>
+                                                                <option value="81">6ft 9in - 205cm</option>
+                                                                <option value="82">6ft 10in - 208cm</option>
+                                                                <option value="83">6ft 11in - 210cm</option>
+                                                                <option value="84">7ft - 213cm</option>
+                                                                <option value="89">Above 7ft - 213cm</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Weight</label>
+                                                            <select class="gt-form-control" name="weight" data-validetta="required">
+                                                                <option value="">
+                                                                    Select Weight In Kg
+                                                                </option>
+                                                                <option value="40">40 Kg</option>
+                                                                <option value="41">41 Kg</option>
+                                                                <option value="42">42 Kg</option>
+                                                                <option value="43">43 Kg</option>
+                                                                <option value="44">44 Kg</option>
+                                                                <option value="45">45 Kg</option>
+                                                                <option value="46">46 Kg</option>
+                                                                <option value="47">47 Kg</option>
+                                                                <option value="48">48 Kg</option>
+                                                                <option value="49">49 Kg</option>
+                                                                <option value="50">50 Kg</option>
+                                                                <option value="51">51 Kg</option>
+                                                                <option value="52">52 Kg</option>
+                                                                <option value="53">53 Kg</option>
+                                                                <option value="54">54 Kg</option>
+                                                                <option value="55">55 Kg</option>
+                                                                <option value="56">56 Kg</option>
+                                                                <option value="57">57 Kg</option>
+                                                                <option value="58">58 Kg</option>
+                                                                <option value="59">59 Kg</option>
+                                                                <option value="60">60 Kg</option>
+                                                                <option value="61">61 Kg</option>
+                                                                <option value="62">62 Kg</option>
+                                                                <option value="63">63 Kg</option>
+                                                                <option value="64">64 Kg</option>
+                                                                <option value="65">65 Kg</option>
+                                                                <option value="66">66 Kg</option>
+                                                                <option value="67">67 Kg</option>
+                                                                <option value="68">68 Kg</option>
+                                                                <option value="69">69 Kg</option>
+                                                                <option value="70">70 Kg</option>
+                                                                <option value="71">71 Kg</option>
+                                                                <option value="72">72 Kg</option>
+                                                                <option value="73">73 Kg</option>
+                                                                <option value="74">74 Kg</option>
+                                                                <option value="75">75 Kg</option>
+                                                                <option value="76">76 Kg</option>
+                                                                <option value="77">77 Kg</option>
+                                                                <option value="78">78 Kg</option>
+                                                                <option value="79">79 Kg</option>
+                                                                <option value="80">80 Kg</option>
+                                                                <option value="81">81 Kg</option>
+                                                                <option value="82">82 Kg</option>
+                                                                <option value="83">83 Kg</option>
+                                                                <option value="84">84 Kg</option>
+                                                                <option value="85">85 Kg</option>
+                                                                <option value="86">86 Kg</option>
+                                                                <option value="87">87 Kg</option>
+                                                                <option value="88">88 Kg</option>
+                                                                <option value="89">89 Kg</option>
+                                                                <option value="90">90 Kg</option>
+                                                                <option value="91">91 Kg</option>
+                                                                <option value="92">92 Kg</option>
+                                                                <option value="93">93 Kg</option>
+                                                                <option value="94">94 Kg</option>
+                                                                <option value="95">95 Kg</option>
+                                                                <option value="96">96 Kg</option>
+                                                                <option value="97">97 Kg</option>
+                                                                <option value="98">98 Kg</option>
+                                                                <option value="99">99 Kg</option>
+                                                                <option value="100">100 Kg</option>
+                                                                <option value="101">101 Kg</option>
+                                                                <option value="102">102 Kg</option>
+                                                                <option value="103">103 Kg</option>
+                                                                <option value="104">104 Kg</option>
+                                                                <option value="105">105 Kg</option>
+                                                                <option value="106">106 Kg</option>
+                                                                <option value="107">107 Kg</option>
+                                                                <option value="108">108 Kg</option>
+                                                                <option value="109">109 Kg</option>
+                                                                <option value="110">110 Kg</option>
+                                                                <option value="111">111 Kg</option>
+                                                                <option value="112">112 Kg</option>
+                                                                <option value="113">113 Kg</option>
+                                                                <option value="114">114 Kg</option>
+                                                                <option value="115">115 Kg</option>
+                                                                <option value="116">116 Kg</option>
+                                                                <option value="117">117 Kg</option>
+                                                                <option value="118">118 Kg</option>
+                                                                <option value="119">119 Kg</option>
+                                                                <option value="120">120 Kg</option>
+                                                                <option value="121">121 Kg</option>
+                                                                <option value="122">122 Kg</option>
+                                                                <option value="123">123 Kg</option>
+                                                                <option value="124">124 Kg</option>
+                                                                <option value="125">125 Kg</option>
+                                                                <option value="126">126 Kg</option>
+                                                                <option value="127">127 Kg</option>
+                                                                <option value="128">128 Kg</option>
+                                                                <option value="129">129 Kg</option>
+                                                                <option value="130">130 Kg</option>
+                                                                <option value="131">131 Kg</option>
+                                                                <option value="132">132 Kg</option>
+                                                                <option value="133">133 Kg</option>
+                                                                <option value="134">134 Kg</option>
+                                                                <option value="135">135 Kg</option>
+                                                                <option value="136">136 Kg</option>
+                                                                <option value="137">137 Kg</option>
+                                                                <option value="138">138 Kg</option>
+                                                                <option value="139">139 Kg</option>
+                                                                <option value="140">140 Kg</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Body Type</label>
+                                                            <div>
+                                                            <input type="radio" name="bodytype" value="Slim" id="Slim" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Slim">Slim</label>
+
+                        <input type="radio" name="bodytype" value="Average" id="Average" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Average">Average</label>
+
+                        <div class="clearfix visible-xs visible-sm"></div>
+
+                        <input type="radio" name="bodytype" value="Athletic" id="Athletic" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Athletic">Athletic</label>
+
+                        <input type="radio" name="bodytype" value="Heavy" id="Heavy" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Heavy">Heavy</label>
+                                                        
+                    
+                    </div>
+
+                    
+                         <br>    
+                             <br>                      
+                    <div class="form-group">
+                    <div>
+                    <label style="float: left;">Complexion</label>
+                </div>
+                <br>
+                <br>
+                    <div>
+                        <input type="radio" name="complexion" value="Very-Fair" id="Very-Fair" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Very-Fair">Very Fair</label>
+
+                        <input type="radio" name="complexion" value="Fair" id="Fair" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Fair">Fair</label>
+
+                        <div class="clearfix visible-xs"></div>
+                        <input type="radio" name="complexion" value="Wheatish" id="Wheatish" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Wheatish">Wheatish</label>
+
+                        <input type="radio" name="complexion" value="Wheatish-brown" id="Wheatish-brown" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Wheatish-brown">Wheatish brown</label>
+                        <input type="radio" name="complexion" value="Dark" id="Dark" class="gt-margin-top-0 pull-left gt-padding-right-10">
+                        <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-5 gt-padding-right-10" for="Dark">Dark</label>
+
+
+                    </div>
+                                                        
+
+                    </div>
+                                                        <div class="form-group">
+                                                            <div>
+                                                            <label>Physical Status</label>
+                                                        </div>
+                                                            <div class="col-xxl-11 col-xs-16 col-lg-11 gt-margin-top-10">
+                                                                
+                                                                <input type="radio" name="physicalStatus" value="Normal" id="Normal" class="gt-margin-top-0 pull-left gt-padding-left-5" data-validetta="required">
+                                                                <label class="pull-left font-14 gt-font-weight-500 gt-padding-right-5 gt-padding-left-5" for="Normal">Normal</label>
+
+                                                                    
+                                                                <input type="radio" name="physicalStatus" value="Physically-challenged" id="Physically-challenged" class="gt-margin-top-0 pull-left " data-validetta="required">
+                                                                <label class="pull-left font-14 gt-font-weight-500 gt-padding-left-10" for="Physically-challenged">Physically challenged</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group text-center gt-margin-right-30">
+                                                            <br>
+                                                            <br>
+                                                            <input type="submit" value="Submit"  class="btn gt-btn-green btn-lg">
+                                                			
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container gt-margin-top-10">
+        </div>
+
+        <!--- FOOTER --->
+        <!--- FOOTER END--->
+
+        <!--
+<script>
+ document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+<script language=JavaScript>
+var message="Function Disabled!";
+function clickIE4(){
+if (event.button==2){
+return false;
+}
+}
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+return false;
+}
+}
+}
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("return false")
+</script>
+-->
+
+        <!---- ONLINE CHAT WIDGET--->
+        <script type="text/javascript">
+            var auto_refresh = setInterval(
+                function() {
+                    $('#count').load('parts/online').fadeIn("slow");
+                }, 15000); // refresh every 10 second
+        </script>
+        <script src="/static/matrimony/js/jquery.min.js"></script>
+        <small class="pull-right">
+  </small>
+        <!---- ONLINE CHAT WIDGET END--->
+
+
+        <a href="{% url 'feedback' %}" style="position: absolute;left: 0;top: 30%;z-index: 1;">
+ <img src="/static/matrimony/img/feedback.png" style="height:100px;width:30px;position:fixed;top:200;left:0">
+</a>
+
+
+        <script>
+            $(function() {
+                $('#thanksMessage').on('show.bs.modal', function() {
+                    var myModal = $(this);
+                    clearTimeout(myModal.data('hideInterval'));
+                    myModal.data('hideInterval', setTimeout(function() {
+                        myModal.modal('hide');
+                    }, 2000));
+                });
+            });
+        </script>
+        <!--- FEEDBACK MODAL END --->
+
+        <!--- GOOGLE ANALYTICS CODE --->
+        <script>
+            var id = 'UA-demo1';
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', id, 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!--- GOOGLE ANALYTICS CODE END --->
+
+
+    </div>
+    <!-- Jquery --->
+    <script src="/static/matrimony/js/jquery.min.js"></script>
+    <!--- Jquery END --->
+
+    <!--- BOOTSTRAP AND GREEN JS--->
+    <script src="/static/matrimony/js/bootstrap.js"></script>
+    <script src="/static/matrimony/js/jquery.validate.js"></script>
+    <script src="/static/matrimony/js/green.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#contact-btn").click(function() {
+                $("#contactform").validate();
+            });
+        });
+    </script>
+    <!--- BOOTSTRAP AND GREEN JS END--->
+    <!--- LOADER JS--->
+    <script>
+        $(document).ready(function() {
+            $('#body').show();
+            $('.preloader-wrapper').hide();
+        });
+    </script>
+    <!--- LOADER JS END --->
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        dis_thumbnail();
+    });
+
+    function dis_thumbnail() {
+        var dataString = '';
+        jQuery.ajax({
+            url: "./web-services/display_thumbnail",
+            type: "POST",
+            data: dataString,
+            cache: false,
+            success: function(response) {
+                $("#dis_thumbnail").html('');
+                $("#dis_thumbnail").append(response);
+            },
+        });
+    }
+</script>
+
+{% endblock %}

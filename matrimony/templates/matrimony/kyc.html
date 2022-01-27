@@ -1,0 +1,84 @@
+{% extends './base.html' %}
+{% block title%}
+Kyc
+{% endblock%}
+{% block content %}
+
+                <!-- To decrese notification count when click on notification-->
+                <script>
+                    function notification(noti_id) {
+                        $.ajax({
+                            url: "web-services/notification",
+                            type: "POST",
+                            data: "noti_id=" + noti_id,
+                            cache: false,
+                            success: function(response) {
+                                location.reload();
+
+                            }
+                        });
+                        return true;
+                    }
+                </script>
+                <!-- HEADER END-->
+                <div class="container">
+
+                    <div class="row gt-margin-top-20">
+
+                        <div class="col-xxl-8 col-xxl-offset-4  col-xl-8 col-xl-offset-4">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <div class="gt-panel">
+                                        <div class="gt-panel-border-green">
+                                            <h2 class="text-center">KYC</h2>
+                                            <p class="text-center">Give your KYC Details.</p>
+                                            
+                                        </div>
+                                        <div class="gt-panel-body">
+                                    <div class="row">
+                                <div class="col-xxl-16">
+                
+
+                            <form class="gt-login-form" action="" name="login_form" id="login_form" method="post">
+                                {% csrf_token %}
+                                
+                                <div class="form-group">
+                                    <label>Adhaar Number</label>
+                                    <input type="text" class="gt-form-control " placeholder="Enter your Adhaar Number" name="adhaar" maxlength="12" data-validetta="required" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Adhaar Front</label>
+                                    <input type="file" class="gt-form-control "  name="image1"   value="{{'user1'}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Adhaar Back</label>
+                                    <input type="file" class="gt-form-control "  name="image2"   value="{{'user1'}}">
+                                </div>
+
+                                
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="submit" value="Submit"  class="btn gt-btn-green btn-lg">
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container gt-margin-top-10">
+</div>
+
+        <!--- FOOTER --->
+        <!--- FOOTER END--->
+
+ 
+{% endblock %}
